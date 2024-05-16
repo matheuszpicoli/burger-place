@@ -30,7 +30,7 @@ export function Operation() {
 	const openingTime = 18
 	const closingTime = 23
 
-	const isOpen = hours >= openingTime && hours <= closingTime
+	const isOpen = hours >= openingTime && hours < closingTime
 
 	let text = String()
 
@@ -51,7 +51,7 @@ export function Operation() {
 				)}
 				{!isOpen && (
 					<React.Fragment>
-						Abre às <span className="text-red-400">{openingTime}h</span>, fecha <span className="text-red-400">meia-noite</span>.
+						Abre às <span className="text-red-400">{openingTime}h</span>, fecha às <span className="text-red-400">{closingTime}h</span>.
 					</React.Fragment>
 				)}
 			</p>
