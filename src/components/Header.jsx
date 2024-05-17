@@ -2,7 +2,6 @@
 import React from "react"
 
 //- React Icons
-// import { MdLocationPin as Location } from "react-icons/md"
 import { FaClock as Clock } from "react-icons/fa"
 
 export function Menu() {
@@ -12,16 +11,6 @@ export function Menu() {
 		</h1>
 	)
 }
-
-// export function Address({
-// 	location
-// }) {
-// 	return (
-// 		<React.Fragment>
-// 			<Location className="text-red-500" />{location}
-// 		</React.Fragment>
-// 	)
-// }
 
 export function Operation() {
 	const date = new Date()
@@ -38,7 +27,7 @@ export function Operation() {
 
 	return (
 		<React.Fragment>
-			<button className={`${isOpen ? "text-green-400" : "text-red-400"} bg-slate-900 h-11 p-2 rounded-lg hover:bg-opacity-70 transition duration-200 active:opacity-60`}
+			<button className={`${isOpen ? "text-green-400" : "text-red-400"} bg-black/20 h-11 p-2 rounded-lg hover:bg-opacity-70 transition duration-200 active:opacity-60`}
 			//. Fazer uma funçao de modal para colocar em onClick.
 			>
 				{text}

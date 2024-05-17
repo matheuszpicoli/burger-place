@@ -27,7 +27,7 @@ export function MenuOrder({
 
 	return (
 		<React.Fragment>
-			<details open className="mx-auto w-10/12 bg-gray-900 pt-9 pb-9">
+			<details open className="mx-auto w-10/12 bg-stone-700 pt-9 pb-9">
 				<summary className="text-white text-lg font-bold mb-4 cursor-pointer">
 					{category}
 				</summary>
@@ -39,7 +39,7 @@ export function MenuOrder({
 
 								<td
 									onClick={() => toggleModalCol1(item)}
-									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-slate-800 hover:bg-gradient-to-r from-gray-800 via-gray-800 to-transparent"
+									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
 								>
 									<img
 										className="w-24 h-24 object-cover rounded-xl mr-4"
@@ -61,7 +61,7 @@ export function MenuOrder({
 
 								<td
 									onClick={() => itemCol2[index] && toggleModalCol2(itemCol2[index])}
-									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-slate-800 hover:bg-gradient-to-r from-gray-800 via-gray-800 to-transparent"
+									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
 								>
 									{itemCol2[index] && (
 										<React.Fragment>
