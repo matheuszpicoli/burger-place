@@ -20,7 +20,7 @@ const address = [
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<body className='container mx-auto font-sans'>
 
-		<header className='bg-gradient-to-b from-stone-800 via-stone-800 to-stone-700 text-white h-16 flex flex-row justify-around items-center'>
+		<header className='bg-gradient-to-b from-stone-700/90 via-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center'>
 			<Header.Menu />
 			<Header.Operation />
 		</header>

@@ -27,7 +27,8 @@ export function Operation() {
 
 	return (
 		<React.Fragment>
-			<button className={`${isOpen ? "text-green-400" : "text-red-400"} bg-black/20 h-11 p-2 rounded-lg hover:bg-opacity-70 transition duration-200 active:opacity-60`}
+			<button
+				className={`${isOpen ? `text-green-400 border-2 border-green-400` : `text-red-400 border-2 border-red-400`} h-11 p-2 rounded-l rounded-r hover:bg-opacity-70 hover:bg-black/20 transition duration-200 active:opacity-60`}
 			//. Fazer uma funçao de modal para colocar em onClick.
 			>
 				{text}
