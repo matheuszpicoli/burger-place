@@ -1,18 +1,24 @@
-/** @type {import('tailwindcss').Config} */
+/**
+	@type {
+		import('tailwindcss').Config
+	}
+*/
 
-module.exports = {
-	content: [
-		"./src/**/*.{js,jsx,ts,tsx}",
-	],
-	theme: {
-		container: {
-			center: true
-		},
-		extend: {
-			colors: {
-				"black-70": "rgba(0, 0, 0, 0.7)"
-			}
-		},
+export const content = [
+	"./src/**/*.{js,jsx,ts,tsx}",
+]
+
+export const theme = {
+	container: {
+		center: true
 	},
-	plugins: [],
+	extend: {
+		colors: {
+			"black-70": "rgba(0, 0, 0, 0.7)"
+		}
+	},
 }
+
+export const plugins = [
+	require("tailwindcss")
+]

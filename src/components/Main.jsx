@@ -96,6 +96,7 @@ export function MenuOrder({
 					key={selectedItemCol1.id}
 					title={selectedItemCol1.description}
 					content={selectedItemCol1.text}
+					extras={selectedItemCol1.extras}
 				/>
 			)}
 			{selectedItemCol2 && (
@@ -103,6 +104,7 @@ export function MenuOrder({
 					key={selectedItemCol2.id}
 					title={selectedItemCol2.description}
 					content={selectedItemCol2.text}
+					extras={selectedItemCol2.extras}
 				/>
 			)}
 		</React.Fragment>

@@ -18,7 +18,7 @@ import Orders from './assets/Orders'
 // const formattedAddress = address[0].split(/(\d+)/).map((formatter, index) => /\d+/.test(formatter) ? <i key={index}>{formatter}</i> : formatter)
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<body className='container mx-auto'>
+	<body className='container mx-auto font-sans'>
 
 		<header className='bg-gray-800 text-white h-16 flex flex-row justify-around items-center'>
 			<Header.Menu />
