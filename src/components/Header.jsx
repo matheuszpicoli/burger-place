@@ -3,10 +3,26 @@ import React from "react"
 
 //- React Icons
 import { FaClock as Clock } from "react-icons/fa"
+import { IoSearchOutline as Find } from "react-icons/io5"
+
+export function Search() {
+	return (
+		<div>
+			<Find
+				className="h-7 w-7 p-1 rounded-l rounded-r inline mr-2 bg-slate-200 text-black"
+			/>
+			<input
+				type="text"
+				placeholder="O que deseja pedir?"
+				className="mr-5 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle"
+			/>
+		</div>
+	)
+}
 
 export function Menu() {
 	return (
-		<h1 className="font-bold text-xl">
+		<h1 className="font-bold text-xl ml-5">
 			<span className="text-red-500">MP</span> Burger
 		</h1>
 	)

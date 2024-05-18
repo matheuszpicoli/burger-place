@@ -1,12 +1,12 @@
 //- React
 import React, { useState } from "react"
-import Modal from "./Modal"
+import * as Modal from "./Modal"
 
 export function MenuList({
 	option
 }) {
 	return (
-		<p className="inline text-white opacity-60 cursor-pointer hover:opacity-100 transition duration-300 active:opacity-20">
+		<p className="inline text-white/60 cursor-pointer hover:text-white transition duration-300 active:opacity-20">
 			{option}
 		</p>
 	)
@@ -92,19 +92,21 @@ export function MenuOrder({
 			</details >
 
 			{selectedItemCol1 && (
-				<Modal
+				<Modal.Order
 					key={selectedItemCol1.id}
-					title={selectedItemCol1.description}
-					content={selectedItemCol1.text}
+					description={selectedItemCol1.description}
+					text={selectedItemCol1.text}
 					extras={selectedItemCol1.extras}
+					price={selectedItemCol1.price}
 				/>
 			)}
 			{selectedItemCol2 && (
-				<Modal
+				<Modal.Order
 					key={selectedItemCol2.id}
-					title={selectedItemCol2.description}
-					content={selectedItemCol2.text}
+					description={selectedItemCol2.description}
+					text={selectedItemCol2.text}
 					extras={selectedItemCol2.extras}
+					price={selectedItemCol2.price}
 				/>
 			)}
 		</React.Fragment>

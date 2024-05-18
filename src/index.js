@@ -20,13 +20,16 @@ const address = [
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<body className='container mx-auto font-sans'>
 
-		<header className='bg-gradient-to-b from-stone-700/90 via-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center'>
+		<header className='sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center'>
 			<Header.Menu />
+			<Header.Search />
+		</header>
+		<header className='bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center'>
 			<Header.Operation />
 		</header>
 
 		<main className='bg-stone-700'>
-			<nav className='h-10 flex justify-around items-center sticky top-0 backdrop-blur'>
+			<nav className='h-10 flex justify-around items-center sticky top-14 backdrop-blur'>
 				<Main.MenuList option={"Entradas"} />
 				<Main.MenuList option={"Padrões"} />
 				<Main.MenuList option={"Chicken"} />

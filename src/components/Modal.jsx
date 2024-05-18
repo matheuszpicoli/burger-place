@@ -1,59 +1,52 @@
+//- React
 import React, { useState, useLayoutEffect } from "react"
-import { MdClose as Close } from "react-icons/md"
-import { FaPencilAlt as Pencil } from "react-icons/fa"
 
-export default function Modal({
-	title,
-	content,
-	extras
+//- React Icon
+import { IoIosCloseCircleOutline as Close } from "react-icons/io";
+import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
+import { GoPencil as Pencil } from "react-icons/go"
+
+export function Order({
+	description,
+	text,
+	extras,
+	price
 }) {
-	const [isModalOpen, setIsModalOpen] = useState(true)
+	const [modalOpen, setModalOpen] = useState(true)
 
-	const handleClose = () => setIsModalOpen(false)
-
-	useLayoutEffect(() => {
-		isModalOpen ?
-			document.body.style.overflow = 'hidden' :
-			document.body.style.overflow = 'unset'
-	}, [isModalOpen])
+	const toggleModalState = () => setModalOpen(false)
 
 	useLayoutEffect(() => {
-		const handleEsc = event => {
-			if (event.code === "Escape") handleClose()
+		if (modalOpen) document.body.style.overflow = "hidden"
+		else document.body.style.overflow = "unset"
+	}, [modalOpen])
+
+	useLayoutEffect(() => {
+		const esc = event => {
+			if (event.code === "Escape") toggleModalState()
 		}
 
-		window.addEventListener('keydown', handleEsc)
+		window.addEventListener("keydown", esc)
 
-		return () => window.removeEventListener('keydown', handleEsc)
+		return () => window.removeEventListener("keydown", esc)
 	}, [])
 
 	return (
-		isModalOpen && (
+		modalOpen && (
 			<React.Fragment>
 				<div className="fixed inset-0 backdrop-blur-sm"></div>
 				<dialog open
 					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2"
 				>
-					<button
-						onClick={handleClose}
-						className="absolute top-1 left-4 text-red-600 opacity-60 hover:opacity-100 transition duration-300">
-						<Close
-							className="w-6 h-6 inline"
-						/>
-						<span className="align-middle italic">
-							Fechar
-						</span>
-					</button>
-
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
-						<h1 className="font-bold text-center uppercase mb-6">{title}</h1>
-						<p className="text-left text-sm">{content}</p>
+						<h1 className="font-bold text-center uppercase mb-6">{description}</h1>
+						<p className="text-left text-sm">{text}</p>
 
 						<div className="p-px bg-slate-300 mt-6 mb-6"></div>
 
 						<h1 className="font-bold uppercase m-4 text-center">Opções / Acréscimos</h1>
 
-						{title.toLowerCase().trim() === "cerveja" && (
+						{description.toLowerCase().trim() === "cerveja" && (
 							<p className="text-sm text-center mt-4 text-red-500 font-bold">
 								Não vendemos bebidas alcoólicas para menores de 18 anos.
 								<span className="block mb-4 text-xs text-red-600 italic">
@@ -73,7 +66,7 @@ export default function Modal({
 									/>
 									<label
 										htmlFor={`extra-${index}`}
-										className="text-sm italic"
+										className="text-sm italic cursor-pointer"
 									>
 										{extraItem.trim()}
 									</label>
@@ -89,6 +82,37 @@ export default function Modal({
 								placeholder="Alguma observação?"
 								className="ml-2 p-2 border-b-2 border-slate-700 bg-slate-300 rounded-sm w-full text-sm outline-none"
 							/>
+						</div>
+
+						<div className="flex justify-between mt-5">
+
+							<span className="text-lg font-bold">
+								{`R$${price.toFixed(2).replace(".", ",")}`}
+							</span>
+
+							<div>
+								<button
+									onClick={toggleModalState}
+									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300">
+									<Close
+										className="w-6 h-6 inline"
+									/>
+									<span className="align-middle italic">
+										Fechar
+									</span>
+								</button>
+								<button
+									onClick={toggleModalState}
+									className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300">
+									<Confirm
+										className="w-6 h-6 inline"
+									/>
+									<span className="align-middle italic">
+										Confirmar
+									</span>
+								</button>
+							</div>
+
 						</div>
 					</div>
 				</dialog>

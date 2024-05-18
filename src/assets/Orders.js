@@ -510,7 +510,10 @@ const Orders = {
 			image: Image.Isotonic,
 			text: "Só temos Gatorade e Powerade, mas temos todos os sabores! É só pedir para a gente.",
 			price: 8,
-			extras: []
+			extras: [
+				"Gatorade",
+				"Powerade"
+			]
 		},
 	],
 
