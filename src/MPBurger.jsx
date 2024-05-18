@@ -15,8 +15,6 @@ import Orders from './assets/Orders'
 function MPBurger() {
 	const [foundWord, setFoundWord] = useState("")
 
-	const filterItems = items => items.filter(item => item.description.toLowerCase().includes(foundWord.toLowerCase()))
-
 	const address = [
 		"Avenida Tocantins, 567, Vila Jardim Rio Claro, Jataí - GO. 75802-095."
 	]
@@ -44,39 +42,39 @@ function MPBurger() {
 
 				<Main.MenuOrder
 					category={"Entradas"}
-					itemCol1={filterItems(Orders.appetizers.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.appetizers.filter((_, index) => index % 2 !== 0))}
+					items={Orders.appetizers}
+					searchTerm={foundWord}
 				/>
 
 				<Main.MenuOrder
 					category={"Padrões"}
-					itemCol1={filterItems(Orders.standards.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.standards.filter((_, index) => index % 2 !== 0))}
+					items={Orders.standards}
+					searchTerm={foundWord}
 				/>
 				<Main.MenuOrder
 					category={"Chicken"}
-					itemCol1={filterItems(Orders.chicken.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.chicken.filter((_, index) => index % 2 !== 0))}
+					items={Orders.chicken}
+					searchTerm={foundWord}
 				/>
 				<Main.MenuOrder
 					category={"Artesanais"}
-					itemCol1={filterItems(Orders.handmate.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.handmate.filter((_, index) => index % 2 !== 0))}
+					items={Orders.handmate}
+					searchTerm={foundWord}
 				/>
 				<Main.MenuOrder
 					category={"Porções"}
-					itemCol1={filterItems(Orders.portions.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.portions.filter((_, index) => index % 2 !== 0))}
+					items={Orders.portions}
+					searchTerm={foundWord}
 				/>
 				<Main.MenuOrder
 					category={"Bebidas"}
-					itemCol1={filterItems(Orders.drinks.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.drinks.filter((_, index) => index % 2 !== 0))}
+					items={Orders.drinks}
+					searchTerm={foundWord}
 				/>
 				<Main.MenuOrder
 					category={"Sobremesas"}
-					itemCol1={filterItems(Orders.desserts.filter((_, index) => index % 2 === 0))}
-					itemCol2={filterItems(Orders.desserts.filter((_, index) => index % 2 !== 0))}
+					items={Orders.desserts}
+					searchTerm={foundWord}
 				/>
 			</main>
 

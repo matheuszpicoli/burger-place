@@ -14,19 +14,18 @@ export function MenuList({
 
 export function MenuOrder({
 	category,
-	itemCol1 = [],
-	itemCol2 = [],
+	items = [],
 	searchTerm = ""
 }) {
-	const [selectedItemCol1, setSelectedItemCol1] = useState(null)
-	const toggleModalCol1 = item => setSelectedItemCol1(item)
-	const filteredItemsCol1 = itemCol1.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+	const [selectedItem, setSelectedItem] = useState(null)
+	const toggleModal = item => setSelectedItem(item)
 
-	const [selectedItemCol2, setSelectedItemCol2] = useState(null)
-	const toggleModalCol2 = item => setSelectedItemCol2(item)
-	const filteredItemsCol2 = itemCol2.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
 	const formatPrice = (price = 0) => `R$ ${price.toFixed(2).replace(".", ",")}`
+
+	const itemCol1 = filteredItems.filter((_, index) => index % 2 === 0);
+	const itemCol2 = filteredItems.filter((_, index) => index % 2 !== 0);
 
 	return (
 		<React.Fragment>
@@ -41,7 +40,7 @@ export function MenuOrder({
 							<tr key={index} className="flex">
 
 								<td
-									onClick={() => toggleModalCol1(item)}
+									onClick={() => toggleModal(item)}
 									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
 								>
 									<img
@@ -63,7 +62,7 @@ export function MenuOrder({
 								</td>
 
 								<td
-									onClick={() => itemCol2[index] && toggleModalCol2(itemCol2[index])}
+									onClick={() => itemCol2[index] && toggleModal(itemCol2[index])}
 									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
 								>
 									{itemCol2[index] && (
@@ -94,22 +93,13 @@ export function MenuOrder({
 				</table>
 			</details >
 
-			{selectedItemCol1 && (
+			{selectedItem && (
 				<Modal.Order
-					key={selectedItemCol1.id}
-					description={selectedItemCol1.description}
-					text={selectedItemCol1.text}
-					extras={selectedItemCol1.extras}
-					price={selectedItemCol1.price}
-				/>
-			)}
-			{selectedItemCol2 && (
-				<Modal.Order
-					key={selectedItemCol2.id}
-					description={selectedItemCol2.description}
-					text={selectedItemCol2.text}
-					extras={selectedItemCol2.extras}
-					price={selectedItemCol2.price}
+					key={selectedItem.id}
+					description={selectedItem.description}
+					text={selectedItem.text}
+					extras={selectedItem.extras}
+					price={selectedItem.price}
 				/>
 			)}
 		</React.Fragment>
