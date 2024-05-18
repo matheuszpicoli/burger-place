@@ -15,13 +15,16 @@ export function MenuList({
 export function MenuOrder({
 	category,
 	itemCol1 = [],
-	itemCol2 = []
+	itemCol2 = [],
+	searchTerm = ""
 }) {
 	const [selectedItemCol1, setSelectedItemCol1] = useState(null)
 	const toggleModalCol1 = item => setSelectedItemCol1(item)
+	const filteredItemsCol1 = itemCol1.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
 	const [selectedItemCol2, setSelectedItemCol2] = useState(null)
 	const toggleModalCol2 = item => setSelectedItemCol2(item)
+	const filteredItemsCol2 = itemCol2.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
 	const formatPrice = (price = 0) => `R$ ${price.toFixed(2).replace(".", ",")}`
 

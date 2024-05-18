@@ -5,7 +5,11 @@ import React from "react"
 import { FaClock as Clock } from "react-icons/fa"
 import { IoSearchOutline as Find } from "react-icons/io5"
 
-export function Search() {
+export function Search({
+	onSearch
+}) {
+	const handleSearch = event => onSearch(event.target.value)
+
 	return (
 		<div>
 			<Find
@@ -13,6 +17,9 @@ export function Search() {
 			/>
 			<input
 				type="text"
+				id="search"
+				autoComplete="off"
+				onChange={handleSearch}
 				placeholder="O que deseja pedir?"
 				className="mr-5 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle"
 			/>
