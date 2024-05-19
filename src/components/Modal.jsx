@@ -6,6 +6,12 @@ import { IoIosCloseCircleOutline as Close } from "react-icons/io";
 import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
 import { GoPencil as Pencil } from "react-icons/go"
 
+import { PiMotorcycleFill as Motorcycle } from "react-icons/pi"
+import { PiGarage as Local } from "react-icons/pi"
+import { MdOutlineAttachMoney as Money } from "react-icons/md"
+import { FaCreditCard as Card } from "react-icons/fa"
+import { FaPix as Pix } from "react-icons/fa6"
+
 export function Order({
 	description,
 	text,
@@ -42,9 +48,9 @@ export function Order({
 	return (
 		modalOpen && (
 			<React.Fragment>
-				<div className="fixed inset-0 backdrop-blur-sm"></div>
+				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<h1 className="font-bold text-center uppercase mb-6">{description}</h1>
@@ -113,9 +119,7 @@ export function Order({
 										onClick={toggleModalState}
 										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
 									>
-										<Confirm
-											className="w-6 h-6 inline"
-										/>
+										<Confirm className="w-6 h-6 inline" />
 										<span className="align-middle italic">
 											Adicionar ao carrinho
 										</span>
@@ -123,6 +127,120 @@ export function Order({
 								)}
 							</div>
 
+						</div>
+					</div>
+				</dialog>
+			</React.Fragment>
+		)
+	)
+}
+
+export function OfficeHour({
+	modalOpen,
+	setModalOpen
+}) {
+	const toggleModalState = () => setModalOpen(false)
+
+	useLayoutEffect(() => {
+		if (modalOpen) document.body.style.overflow = "hidden"
+		else document.body.style.overflow = "unset"
+	}, [modalOpen])
+
+	useLayoutEffect(() => {
+		const esc = event => {
+			if (event.code === "Escape") toggleModalState()
+		}
+
+		window.addEventListener("keydown", esc)
+
+		return () => window.removeEventListener("keydown", esc)
+	}, [])
+
+	const openingTime = 18
+	const closingTime = 23
+
+	const maskForCNPJ = cnpj => {
+		const mask = /^([0-9]{2})([0-9]{3})([0-9]{3})([0-9]{4})([0-9]{2})$/
+
+		return cnpj.replace(mask, "$1.$2.$3/$4-$5")
+	}
+
+	const CNPJ = "67492404000110"
+
+	return (
+		modalOpen && (
+			<React.Fragment>
+				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
+				<dialog open
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20"
+				>
+					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
+						<section>
+							<h1 className="font-bold text-center uppercase mb-6">
+								Horário de funcionamento
+							</h1>
+							<b>DOM, SEG, TER, QUA, QUI, SEX, SAB</b>
+							<p>Das {openingTime}h às {closingTime}h</p>
+							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
+						</section>
+
+						<section>
+							<h2 className="font-bold text-center uppercase mb-6">
+								Opções de entrega
+							</h2>
+
+							<div>
+								<Motorcycle className="inline mr-1 w-5 h-5" />
+								<span className="mr-3 align-middle">Delivery</span>
+
+								<Local className="inline mr-1 w-5 h-5" />
+								<span className="mr-3 align-middle">No local</span>
+							</div>
+							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
+						</section>
+
+						<section>
+							<h2 className="font-bold text-center uppercase mb-6">
+								Formas de pagamento
+							</h2>
+
+							<div>
+								<Money className="inline mr-1 w-5 h-5" />
+								<span className="mr-3 align-middle">Dinheiro</span>
+
+								<Card className="inline mr-1 w-5 h-5" />
+								<span className="mr-3 align-middle">Cartão</span>
+
+								<Pix className="inline mr-1 w-5 h-5" />
+								<span className="mr-3 align-middle">Pix</span>
+							</div>
+
+							<div>
+								<small>Pedido mínimo <span className="text-green-700">R$20,00</span></small>
+							</div>
+							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
+						</section>
+
+						<section>
+							<h2 className="font-bold text-center uppercase mb-6">
+								Estabelecimento
+							</h2>
+
+							<p><b>Razão Social:</b> MP Burger</p>
+							<p><b>CNPJ:</b> <i>{maskForCNPJ(CNPJ)}</i></p>
+							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
+						</section>
+
+						<div className="flex justify-center mt-5">
+							<button
+								onClick={toggleModalState}
+								className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
+							>
+								<Close className="w-6 h-6 inline" />
+								<span className="align-middle italic">
+									Fechar
+								</span>
+							</button>
 						</div>
 					</div>
 				</dialog>

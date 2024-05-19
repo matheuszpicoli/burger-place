@@ -1,5 +1,8 @@
 //- React
-import React from "react"
+import React, { useState } from "react"
+
+//- Components
+import * as Modal from "./Modal"
 
 //- React Icons
 import { IoFastFoodOutline as Logo } from "react-icons/io5"
@@ -42,6 +45,10 @@ export function Menu() {
 }
 
 export function Operation() {
+	const [modalOpen, setModalOpen] = useState(false)
+
+	const toggleModal = () => setModalOpen(true)
+
 	const date = new Date()
 	const hours = date.getHours()
 
@@ -58,10 +65,13 @@ export function Operation() {
 		<React.Fragment>
 			<button
 				className={`${isOpen ? `text-green-400 border-2 border-green-400` : `text-red-400 border-2 border-red-400`} h-11 p-2 rounded-l rounded-r hover:bg-opacity-70 hover:bg-black/20 transition duration-200 active:opacity-60`}
-			//. Fazer uma funçao de modal para colocar em onClick.
+				onClick={toggleModal}
 			>
 				{text}
 			</button>
+
+			<Modal.OfficeHour modalOpen={modalOpen} setModalOpen={setModalOpen} />
+
 			<p>
 				{isOpen && (
 					<React.Fragment>
