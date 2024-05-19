@@ -31,6 +31,14 @@ export function Order({
 		return () => window.removeEventListener("keydown", esc)
 	}, [])
 
+	const date = new Date()
+	const hours = date.getHours()
+
+	const openingTime = 18
+	const closingTime = 23
+
+	const isOpen = hours >= openingTime && hours < closingTime
+
 	return (
 		modalOpen && (
 			<React.Fragment>
@@ -80,7 +88,7 @@ export function Order({
 							<input
 								type="text"
 								placeholder="Alguma observação?"
-								className="ml-2 p-2 border-b-2 border-slate-700 bg-slate-300 rounded-sm w-full text-sm outline-none"
+								className="ml-2 p-2 border-b-2 border-slate-700 bg-slate-300 rounded-sm w-full text-sm outline-none cursor-pointer hover:opacity-60 active:opacity-100 transition duration-300"
 							/>
 						</div>
 
@@ -93,24 +101,28 @@ export function Order({
 							<div>
 								<button
 									onClick={toggleModalState}
-									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300">
+									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
+								>
 									<Close
 										className="w-6 h-6 inline"
 									/>
 									<span className="align-middle italic">
-										Fechar
+										Cancelar
 									</span>
 								</button>
-								<button
-									onClick={toggleModalState}
-									className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300">
-									<Confirm
-										className="w-6 h-6 inline"
-									/>
-									<span className="align-middle italic">
-										Confirmar
-									</span>
-								</button>
+								{isOpen && (
+									<button
+										onClick={toggleModalState}
+										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
+									>
+										<Confirm
+											className="w-6 h-6 inline"
+										/>
+										<span className="align-middle italic">
+											Adicionar ao carrinho
+										</span>
+									</button>
+								)}
 							</div>
 
 						</div>

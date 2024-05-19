@@ -1,5 +1,7 @@
 //- React
 import React, { useState } from "react"
+
+//- Components
 import * as Modal from "./Modal"
 
 export function MenuList({
@@ -22,10 +24,10 @@ export function MenuOrder({
 
 	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
-	const formatPrice = (price = 0) => `R$ ${price.toFixed(2).replace(".", ",")}`
+	const itemCol1 = filteredItems.filter((_, index) => index % 2 === 0)
+	const itemCol2 = filteredItems.filter((_, index) => index % 2 !== 0)
 
-	const itemCol1 = filteredItems.filter((_, index) => index % 2 === 0);
-	const itemCol2 = filteredItems.filter((_, index) => index % 2 !== 0);
+	const formatPrice = (price = 0) => `R$ ${price.toFixed(2).replace(".", ",")}`
 
 	return (
 		<React.Fragment>
@@ -41,7 +43,7 @@ export function MenuOrder({
 
 								<td
 									onClick={() => toggleModal(item)}
-									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
+									className={`${index === itemCol1.length - 1 && filteredItems.length % 2 !== 0 ? "colspan-2" : ""} flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent`}
 								>
 									<img
 										className="w-24 h-24 object-cover rounded-xl mr-4"
@@ -61,31 +63,33 @@ export function MenuOrder({
 									</div>
 								</td>
 
-								<td
-									onClick={() => itemCol2[index] && toggleModal(itemCol2[index])}
-									className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
-								>
-									{itemCol2[index] && (
-										<React.Fragment>
-											<img
-												className="w-24 h-24 object-cover rounded-xl mr-4"
-												src={itemCol2[index].image}
-												alt={itemCol2[index].description}
-											/>
-											<div>
-												<th className="uppercase">
-													{itemCol2[index].description}
-												</th>
-												<p className="text-xs">
-													{itemCol2[index].text}
-												</p>
-												<i className="text-green-400">
-													{formatPrice(itemCol2[index].price)}
-												</i>
-											</div>
-										</React.Fragment>
-									)}
-								</td>
+								{index !== itemCol1.length - 1 || filteredItems.length % 2 === 0 ? (
+									<td
+										onClick={() => itemCol2[index] && toggleModal(itemCol2[index])}
+										className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
+									>
+										{itemCol2[index] && (
+											<React.Fragment>
+												<img
+													className="w-24 h-24 object-cover rounded-xl mr-4"
+													src={itemCol2[index].image}
+													alt={itemCol2[index].description}
+												/>
+												<div>
+													<th className="uppercase">
+														{itemCol2[index].description}
+													</th>
+													<p className="text-xs">
+														{itemCol2[index].text}
+													</p>
+													<i className="text-green-400">
+														{formatPrice(itemCol2[index].price)}
+													</i>
+												</div>
+											</React.Fragment>
+										)}
+									</td>
+								) : null}
 
 							</tr>
 						))}

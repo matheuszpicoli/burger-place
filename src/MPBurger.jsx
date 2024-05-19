@@ -45,7 +45,6 @@ function MPBurger() {
 					items={Orders.appetizers}
 					searchTerm={foundWord}
 				/>
-
 				<Main.MenuOrder
 					category={"Padrões"}
 					items={Orders.standards}

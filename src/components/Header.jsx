@@ -2,6 +2,7 @@
 import React from "react"
 
 //- React Icons
+import { IoFastFoodOutline as Logo } from "react-icons/io5"
 import { FaClock as Clock } from "react-icons/fa"
 import { IoSearchOutline as Find } from "react-icons/io5"
 
@@ -12,16 +13,13 @@ export function Search({
 
 	return (
 		<div>
-			<Find
-				className="h-7 w-7 p-1 rounded-l rounded-r inline mr-2 bg-slate-200 text-black"
-			/>
+			<Find className="h-7 w-7 p-1 rounded-l rounded-r inline mr-2 bg-slate-200 text-black" />
 			<input
-				type="text"
-				id="search"
+				className="mr-5 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300"
+				type="search"
+				placeholder="O que deseja pedir?"
 				autoComplete="off"
 				onChange={handleSearch}
-				placeholder="O que deseja pedir?"
-				className="mr-5 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle"
 			/>
 		</div>
 	)
@@ -29,8 +27,11 @@ export function Search({
 
 export function Menu() {
 	return (
-		<h1 className="font-bold text-xl ml-5">
-			<span className="text-red-500">MP</span> Burger
+		<h1 className="font-bold text-xl ml-5 text-slate-200">
+			<Logo className="inline w-6 h-6 mr-1" />
+			<span className="align-middle">
+				<span className="text-red-500">MP</span> Burger
+			</span>
 		</h1>
 	)
 }
@@ -44,7 +45,7 @@ export function Operation() {
 
 	const isOpen = hours >= openingTime && hours < closingTime
 
-	let text = String()
+	let text = ""
 
 	isOpen ? text = "Aberto" : text = "Fechado"
 

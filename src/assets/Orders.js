@@ -32,9 +32,9 @@ const Orders = {
 		},
 		{
 			id: 3,
-			description: "Linguiça Empanada",
+			description: "Salsicha Empanada",
 			image: Image.BreadedSausage,
-			text: "Linguiças empanadas e picles, acompanha batata frita e mostarda.",
+			text: "Salsichas empanadas e picles, acompanha batata frita e mostarda.",
 			price: 30,
 			extras: [
 				"Linguiça calabresa",
@@ -366,12 +366,13 @@ const Orders = {
 			text: "Uma batata frita caprichada, segue com diversos tipos de molhos e vem banhada com cheddar. Acompanha salada com alface, tomate, brócolis, cebola e limão.",
 			price: 40,
 			extras: [
-				"Acrescentar queijo ralado",
+				"Queijo ralado",
 				"Sem salada",
 				"Sem molho",
+				"Sem óleo",
+				"Carne",
 				"Substituir cebola branca por cebola roxa",
 				"Torre de batata frita",
-				"Sem óleo",
 				"Torresmo"
 			]
 		},
@@ -466,16 +467,25 @@ const Orders = {
 			id: 27,
 			description: "Suco",
 			image: Image.Juice,
-			text: "100% natural, fazemos na hora! Temos jarras de 300ml, 500ml e também no copo: abacaxi com hortelã, laranja, caju, graviola e acerola.",
+			text: "100% natural, fazemos na hora! Temos jarras de 300ml, 500ml e também no copo. Temos suco de abacaxi com hortelã, laranja, caju, graviola e acerola.",
 			price: 11,
 			extras: [
-				"300ml",
-				"500ml",
-				"Abacaxi com hortelã",
-				"Laranja",
-				"Caju",
-				"Graviola",
-				"Acerola"
+				"Abacaxi com hortelã (300ml)",
+				"Abacaxi com hortelã (500ml)",
+				"Abacaxi com hortelã (Copo)",
+				"Laranja (300ml)",
+				"Laranja (500ml)",
+				"Laranja (Copo)",
+				"Caju (300ml)",
+				"Caju (500ml)",
+				"Caju (Copo)",
+				"Graviola (300ml)",
+				"Graviola (500ml)",
+				"Graviola (Copo)",
+				"Acerola (300ml)",
+				"Acerola (500ml)",
+				"Acerola (Copo)",
+				"Sem açúcar"
 			]
 		},
 		{
@@ -494,14 +504,14 @@ const Orders = {
 			id: 29,
 			description: "Cerveja",
 			image: Image.Beer,
-			text: "Que tal aquela gelada com os amigos? Se beber não dirija, tenha sempre uma carona. Temos Stella Artois, Heineken, Spaten, Original e Devassa.",
+			text: "Que tal aquela gelada com os amigos? Se beber não dirija, tenha sempre uma carona. Temos Stella Artois, Heineken, Spaten, Corona e Budweiser.",
 			price: 13,
 			extras: [
 				"Stella Artois",
 				"Heineken",
 				"Spaten",
-				"Original",
-				"Devassa"
+				"Corona",
+				"Budweiser"
 			]
 		},
 		{
@@ -511,8 +521,18 @@ const Orders = {
 			text: "Só temos Gatorade e Powerade, mas temos todos os sabores! É só pedir para a gente.",
 			price: 8,
 			extras: [
-				"Gatorade",
-				"Powerade"
+				"Gatorade de uva",
+				"Gatorade de laranja",
+				"Gatorade de limão",
+				"Gatorade de tangerina",
+				"Gatorade de morango com maracujá",
+				"Gatorade de maracujá",
+				"Gatorade de frutas cítricas",
+				"Powerade de mix de frutas",
+				"Powerade de limão",
+				"Powerade de laranja",
+				"Powerade de uva",
+				"Powerade de frutas tropicais",
 			]
 		},
 	],
