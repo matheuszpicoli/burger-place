@@ -24,6 +24,17 @@ export function MenuOrder({
 
 	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
+	const filterResultText = () => {
+		switch (filteredItems.length) {
+			case 0:
+				return "Nada foi encontrado"
+			case 1:
+				return "Seu filtro encontrou 1 resultado"
+			default:
+				return `Seu filtro encontrou ${filteredItems.length} resultados`
+		}
+	}
+
 	const itemCol1 = filteredItems.filter((_, index) => index % 2 === 0)
 	const itemCol2 = filteredItems.filter((_, index) => index % 2 !== 0)
 
@@ -35,6 +46,12 @@ export function MenuOrder({
 				<summary className="text-white text-lg font-bold mb-4 cursor-pointer">
 					{category}
 				</summary>
+
+				{searchTerm.length > 0 && (
+					<p className="text-white/70 cursor-default text-sm text-center mb-4">
+						{filterResultText()}
+					</p>
+				)}
 
 				<table className="mx-auto w-10/12 text-gray-400">
 					<tbody>
@@ -49,6 +66,7 @@ export function MenuOrder({
 										className="w-24 h-24 object-cover rounded-xl mr-4"
 										src={item.image}
 										alt={item.description}
+										loading="lazy"
 									/>
 									<div>
 										<th className="uppercase">
@@ -74,6 +92,7 @@ export function MenuOrder({
 													className="w-24 h-24 object-cover rounded-xl mr-4"
 													src={itemCol2[index].image}
 													alt={itemCol2[index].description}
+													loading="lazy"
 												/>
 												<div>
 													<th className="uppercase">

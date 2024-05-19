@@ -1,4 +1,7 @@
+//- React
 import React from "react"
+
+//- React Icons
 import { MdLocationPin as Location } from "react-icons/md"
 import { MdShoppingCart as Cart } from "react-icons/md"
 

@@ -103,9 +103,7 @@ export function Order({
 									onClick={toggleModalState}
 									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
 								>
-									<Close
-										className="w-6 h-6 inline"
-									/>
+									<Close className="w-6 h-6 inline" />
 									<span className="align-middle italic">
 										Cancelar
 									</span>

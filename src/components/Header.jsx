@@ -26,8 +26,13 @@ export function Search({
 }
 
 export function Menu() {
+	const returnToTop = () => window.scrollTo(0, 0)
+
 	return (
-		<h1 className="font-bold text-xl ml-5 text-slate-200">
+		<h1
+			className="cursor-pointer font-bold text-xl ml-5 text-slate-200 hover:opacity-70 active:opacity-100 transition duration-300"
+			onClick={returnToTop}
+		>
 			<Logo className="inline w-6 h-6 mr-1" />
 			<span className="align-middle">
 				<span className="text-red-500">MP</span> Burger
