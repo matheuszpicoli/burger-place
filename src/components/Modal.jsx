@@ -85,6 +85,7 @@ export function Order({
 						)}
 
 						{extras
+							.slice()
 							.sort((extraToOrder, extraOrdered) => extraToOrder.name.localeCompare(extraOrdered.name))
 							.map((extraItem, index) => (
 								<React.Fragment key={index}>

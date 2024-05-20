@@ -1,6 +1,6 @@
 /**
 	@type {
-		import('tailwindcss').Config
+		import("tailwindcss").Config
 	}
 */
 
@@ -15,6 +15,10 @@ export const theme = {
 	extend: {
 		colors: {
 			"black-70": "rgba(0, 0, 0, 0.7)"
+		},
+		rotate: {
+			"0": "0",
+			"180": "180deg"
 		},
 		animation: {
 			"modal": "modal 150ms linear 1",
@@ -41,7 +45,20 @@ export const theme = {
 					transform: "translateY(0)"
 				}
 			}
-		}
+		},
+		transitionProperty: {
+			"height": "height",
+			"spacing": "margin, padding",
+		},
+	},
+	variants: {
+		extend: {
+			transitionProperty: [
+				"responsive",
+				"motion-safe",
+				"motion-reduce"
+			],
+		},
 	},
 }
 

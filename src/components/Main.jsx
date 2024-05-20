@@ -1,6 +1,9 @@
 //- React
 import React, { useState } from "react"
 
+//- React Icons
+import { IoIosArrowUp as Arrow } from "react-icons/io"
+
 //- Components
 import * as Modal from "./Modal"
 
@@ -82,9 +85,12 @@ export function MenuOrder({
 			>
 				<summary
 					onClick={toggleDetails}
-					className="text-white text-lg font-bold mb-4 cursor-pointer"
+					className="text-white tracking-wide text-lg font-bold mb-4 cursor-pointer flex items-center justify-around hover:text-white/40 active:text-white transition duration-200"
 				>
 					{category}
+					<span className={`transform ${detailsState ? "rotate-0" : "rotate-180"}`}>
+						<Arrow className="w-6 h-6" />
+					</span>
 				</summary>
 
 				{searchTerm.length > 0 && (
