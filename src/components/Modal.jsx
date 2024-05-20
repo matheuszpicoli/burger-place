@@ -65,7 +65,7 @@ export function Order({
 			<React.Fragment>
 				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20 animate-modal"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<h1 className="font-bold text-center uppercase mb-6">{description}</h1>
@@ -87,11 +87,8 @@ export function Order({
 						{extras
 							.sort((extraToOrder, extraOrdered) => extraToOrder.name.localeCompare(extraOrdered.name))
 							.map((extraItem, index) => (
-								<React.Fragment>
-									<div
-										key={index}
-										className="flex items-center justify-between"
-									>
+								<React.Fragment key={index}>
+									<div className="flex items-center justify-between">
 										<div>
 											<input
 												type="checkbox"
@@ -208,7 +205,7 @@ export function OfficeHour({
 			<React.Fragment>
 				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none animate-modal fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20 animate-modal"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<section>

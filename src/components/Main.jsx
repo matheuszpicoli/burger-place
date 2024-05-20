@@ -32,11 +32,19 @@ export function MenuOrder({
 	isLastCategory = false
 }) {
 	const [selectedItem, setSelectedItem] = useState(null)
+	const [detailsState, setDetailsState] = useState(true)
+
 	const [modalKey, setModalKey] = useState(Math.random())
+	const [detailsKey, setDetailsKey] = useState(Math.random())
 
 	const toggleModal = item => {
 		setSelectedItem(item)
 		setModalKey(Math.random())
+	}
+
+	const toggleDetails = () => {
+		setDetailsState(!detailsState)
+		setDetailsKey(Math.random())
 	}
 
 	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -67,10 +75,15 @@ export function MenuOrder({
 				id={category}
 				className="h-24"
 			></div>
-			<details open
+			<details
+				open={detailsState}
+				key={detailsKey}
 				className={`mx-auto w-10/12 bg-stone-700 ${isLastCategory ? "pb-24" : ""}`}
 			>
-				<summary className="text-white text-lg font-bold mb-4 cursor-pointer">
+				<summary
+					onClick={toggleDetails}
+					className="text-white text-lg font-bold mb-4 cursor-pointer"
+				>
 					{category}
 				</summary>
 
@@ -80,14 +93,14 @@ export function MenuOrder({
 					</p>
 				)}
 
-				<table className="mx-auto w-10/12 text-gray-400">
+				<table className={`mx-auto w-10/12 text-gray-400 ${detailsState ? "animate-fade-in" : ""}`}>
 					<tbody>
 						{itemCol1.map((item, index) => (
 							<tr key={index} className="flex">
 
 								<td
 									onClick={() => toggleModal(item)}
-									className={`${index === itemCol1.length - 1 && filteredItems.length % 2 !== 0 ? "colspan-2" : ""} flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent`}
+									className={`${index === itemCol1.length - 1 && filteredItems.length % 2 !== 0 ? "colspan-2" : ""} flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent animate-fade-in`}
 								>
 									<img
 										className="w-24 h-24 object-cover rounded-xl mr-4"
@@ -96,9 +109,9 @@ export function MenuOrder({
 										loading="lazy"
 									/>
 									<div>
-										<th className="uppercase">
+										<h2 className="uppercase font-bold">
 											{item.description}
-										</th>
+										</h2>
 										<p className="text-xs">
 											{item.text}
 										</p>
@@ -111,7 +124,7 @@ export function MenuOrder({
 								{index !== itemCol1.length - 1 || filteredItems.length % 2 === 0 ? (
 									<td
 										onClick={() => itemCol2[index] && toggleModal(itemCol2[index])}
-										className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent"
+										className="flex items-start flex-1 p-4 cursor-pointer border-2 border-white/20 hover:bg-gradient-to-r from-white/10 via-white/10 to-transparent animate-fade-in"
 									>
 										{itemCol2[index] && (
 											<React.Fragment>
@@ -122,9 +135,9 @@ export function MenuOrder({
 													loading="lazy"
 												/>
 												<div>
-													<th className="uppercase">
+													<h2 className="uppercase font-bold">
 														{itemCol2[index].description}
-													</th>
+													</h2>
 													<p className="text-xs">
 														{itemCol2[index].text}
 													</p>
