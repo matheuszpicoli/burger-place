@@ -160,12 +160,10 @@ export function OfficeHour({
 	const closingTime = 23
 
 	const maskForCNPJ = cnpj => {
-		const mask = /^([0-9]{2})([0-9]{3})([0-9]{3})([0-9]{4})([0-9]{2})$/
+		const mask = new RegExp(/^([0-9]{2})([0-9]{3})([0-9]{3})([0-9]{4})([0-9]{2})$/)
 
-		return cnpj.replace(mask, "$1.$2.$3/$4-$5")
+		return cnpj.toString().replace(mask, "$1.$2.$3/$4-$5")
 	}
-
-	const CNPJ = "67492404000110"
 
 	return (
 		modalOpen && (
@@ -179,8 +177,7 @@ export function OfficeHour({
 							<h1 className="font-bold text-center uppercase mb-6">
 								Horário de funcionamento
 							</h1>
-							<b>DOM, SEG, TER, QUA, QUI, SEX, SAB</b>
-							<p>Das {openingTime}h às {closingTime}h</p>
+							<span><b>Todos os dias</b> das {openingTime}h às {closingTime}h</span>
 							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
 						</section>
 
@@ -227,7 +224,7 @@ export function OfficeHour({
 							</h2>
 
 							<p><b>Razão Social:</b> MP Burger</p>
-							<p><b>CNPJ:</b> <i>{maskForCNPJ(CNPJ)}</i></p>
+							<p><b>CNPJ:</b> <i>{maskForCNPJ(67492404000110)}</i></p>
 							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
 						</section>
 
