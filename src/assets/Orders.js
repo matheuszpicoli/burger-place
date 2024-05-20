@@ -157,7 +157,7 @@ const Orders = {
 			description: "Pastel",
 			image: Image.FriedPastry,
 			text: "O famoso pastel frito que todos conhecem, acompanha alface e catchup. Sabores: carne, frango, presunto, queijo e camarão.",
-			price: 9,
+			price: 19,
 			extras: [
 				{
 					name: "Pastel de carne",
@@ -380,7 +380,7 @@ const Orders = {
 			description: "Galis Salada",
 			image: Image.GalisSalad,
 			text: "O mais simples da família Galis... Pão com gergelim, frango, alface, tomate, muçarela, picles e cebola roxa.",
-			price: 24,
+			price: 21,
 			extras: [
 				{
 					name: "Sem gergelim",
@@ -1089,6 +1089,10 @@ const Orders = {
 				{
 					name: "Sprite",
 					price: 0
+				},
+				{
+					name: "Copo com gelo e limão",
+					price: 0
 				}
 			]
 		},
@@ -1169,7 +1173,7 @@ const Orders = {
 			id: 28,
 			description: "Água",
 			image: Image.Water,
-			text: "Água é sempre bom, zero calorias e tem em todo lugar. Temos água mineral natural, com gás ou tônica.",
+			text: "Água é sempre bom, zero calorias e tem em todo lugar. Temos água mineral natural e com gás.",
 			price: 3.5,
 			extras: [
 				{
@@ -1181,8 +1185,8 @@ const Orders = {
 					price: 0.5
 				},
 				{
-					name: "Água tônica",
-					price: 0.5
+					name: "Copo com gelo",
+					price: 0
 				}
 			]
 		},

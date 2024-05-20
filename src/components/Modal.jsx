@@ -102,7 +102,7 @@ export function Order({
 											/>
 											<label
 												htmlFor={`extra-${index}`}
-												className="text-sm italic cursor-pointer hover:font-medium"
+												className="text-sm italic cursor-pointer"
 											>
 												{extraItem.name.trim()}
 											</label>
