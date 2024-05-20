@@ -10,10 +10,22 @@ const Orders = {
 			text: "Pepino com uma leve camada de cream cheese e salmão.",
 			price: 31,
 			extras: [
-				"Substituir o pepino por pão",
-				"Orégano",
-				"Maionese",
-				"Azeite"
+				{
+					name: "Substituir o pepino por pão",
+					price: -2
+				},
+				{
+					name: "Orégano",
+					price: 2.5
+				},
+				{
+					name: "Maionese",
+					price: 4
+				},
+				{
+					name: "Azeite",
+					price: 4
+				}
 			]
 		},
 		{
@@ -23,11 +35,26 @@ const Orders = {
 			text: "Tentáculos de polvo rodeados com azeite e um limão siciliano, vem acompanhado de ervilha.",
 			price: 75,
 			extras: [
-				"Molho inglês",
-				"Anéis de cebola",
-				"Sem ervilha",
-				"Sem azeite",
-				"Pimenta do reino"
+				{
+					name: "Molho inglês",
+					price: 3
+				},
+				{
+					name: "Anéis de cebola",
+					price: 4.5
+				},
+				{
+					name: "Sem ervilha",
+					price: -2
+				},
+				{
+					name: "Sem azeite",
+					price: -4
+				},
+				{
+					name: "Pimenta do reino",
+					price: 7
+				}
 			]
 		},
 		{
@@ -37,11 +64,26 @@ const Orders = {
 			text: "Salsichas empanadas e picles, acompanha batata frita e mostarda.",
 			price: 30,
 			extras: [
-				"Linguiça calabresa",
-				"Sem picles",
-				"Substituir mostarda por catchup",
-				"Batata sem óleo",
-				"Substituir batata frita por mandioca"
+				{
+					name: "Substituir salsicha por linguiça calabresa",
+					price: 4
+				},
+				{
+					name: "Sem picles",
+					price: -2.5
+				},
+				{
+					name: "Substituir mostarda por catchup",
+					price: 0
+				},
+				{
+					name: "Batata sem óleo",
+					price: 0
+				},
+				{
+					name: "Substituir batata frita por mandioca",
+					price: 3
+				}
 			]
 		},
 		{
@@ -51,11 +93,26 @@ const Orders = {
 			text: "Lombo suíno com o molho especial da casa, possui grãos de gergelim e uma salada de leve. Acompanha batata frita e um molho de pimenta.",
 			price: 50,
 			extras: [
-				"Mal passada",
-				"Ao ponto",
-				"Sem gergelim",
-				"Sem salada",
-				"Sem molho de pimenta"
+				{
+					name: "Mal passada",
+					price: 0
+				},
+				{
+					name: "Ao ponto",
+					price: 0
+				},
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Sem molho de pimenta",
+					price: -4
+				}
 			]
 		},
 		{
@@ -65,13 +122,34 @@ const Orders = {
 			text: "Uma porção pequena com diversas variedades de frios: uva, queijo prato, salame, peito de peru, presunto e azeitona.",
 			price: 23,
 			extras: [
-				"Substituir por azeitona sem caroço",
-				"Substituir por uva verde",
-				"Mortadela",
-				"Azeitona preta",
-				"Substituir por queijo provolone",
-				"Palmito",
-				"Ovo de codorna em conserva"
+				{
+					name: "Substituir por azeitona sem caroço",
+					price: 5
+				},
+				{
+					name: "Substituir por uva verde",
+					price: 2
+				},
+				{
+					name: "Mortadela",
+					price: 4
+				},
+				{
+					name: "Azeitona preta",
+					price: 8
+				},
+				{
+					name: "Substituir por queijo provolone",
+					price: 12
+				},
+				{
+					name: "Palmito",
+					price: 4
+				},
+				{
+					name: "Ovo de codorna em conserva",
+					price: 9
+				}
 			]
 		},
 		{
@@ -81,18 +159,54 @@ const Orders = {
 			text: "O famoso pastel frito que todos conhecem, acompanha alface e catchup. Sabores: carne, frango, presunto, queijo e camarão.",
 			price: 9,
 			extras: [
-				"Pastel de carne",
-				"Pastel de frango",
-				"Pastel de presunto",
-				"Pastel de queijo",
-				"Pastel de camarão",
-				"Sem óleo",
-				"Maionese",
-				"Mostarda",
-				"Barbecue",
-				"Molho rosé",
-				"Anéis de lula",
-				"Sem salada"
+				{
+					name: "Pastel de carne",
+					price: 0
+				},
+				{
+					name: "Pastel de frango",
+					price: 0
+				},
+				{
+					name: "Pastel de presunto",
+					price: 0
+				},
+				{
+					name: "Pastel de queijo",
+					price: 0
+				},
+				{
+					name: "Pastel de camarão",
+					price: 5.5
+				},
+				{
+					name: "Sem óleo",
+					price: 0
+				},
+				{
+					name: "Maionese",
+					price: 4
+				},
+				{
+					name: "Mostarda",
+					price: 1
+				},
+				{
+					name: "Barbecue",
+					price: 2
+				},
+				{
+					name: "Molho rosé",
+					price: 2.5
+				},
+				{
+					name: "Anéis de lula",
+					price: 17
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				}
 			]
 		},
 	],
@@ -105,14 +219,38 @@ const Orders = {
 			text: "Para quem é vegano. Ops! Tem carne... Pão com gergelim, carne bovina, alface, tomate, picles e cebola roxa.",
 			price: 18,
 			extras: [
-				"Sem gergelim",
-				"Sem picles",
-				"Sem cebola",
-				"Substituir por cebola branca",
-				"Queijo cheddar",
-				"Ovo",
-				"Molho especial",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem picles",
+					price: -2.5
+				},
+				{
+					name: "Sem cebola",
+					price: -3
+				},
+				{
+					name: "Substituir por cebola branca",
+					price: -2
+				},
+				{
+					name: "Queijo cheddar",
+					price: 7
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -122,12 +260,30 @@ const Orders = {
 			text: "Para ter um gostino a mais. Pão com gergelim, carne bovina, alface, tomate, presunto, cheddar e cebola roxa.",
 			price: 21,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Substituir por cebola branca",
-				"Ovo",
-				"Molho especial",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Substituir por cebola branca",
+					price: -2
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -137,12 +293,30 @@ const Orders = {
 			text: "Esse é famoso! Pão com gergelim, carne bovina, alface, tomate, bacon, cheddar e cebola roxa.",
 			price: 24,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Substituir por cebola branca",
-				"Ovo",
-				"Molho especial",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Substituir por cebola branca",
+					price: -2
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -152,17 +326,50 @@ const Orders = {
 			text: "E aí? Vai encarar? Pão com gergelim, carne bovina, alface, tomate, picles, bacon, cheddar, cebola roxa e molho especial.",
 			price: 29,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Sem molho especial",
-				"Substituir por cebola branca",
-				"Mais um bife",
-				"Mais dois bifes",
-				"Dobro de tudo",
-				"Presunto",
-				"Peito de peru",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Sem molho especial",
+					price: -1.5
+				},
+				{
+					name: "Substituir por cebola branca",
+					price: -2
+				},
+				{
+					name: "Mais um bife",
+					price: 6
+				},
+				{
+					name: "Mais dois bifes",
+					price: 12
+				},
+				{
+					name: "Dobro de tudo",
+					price: 20
+				},
+				{
+					name: "Presunto",
+					price: 3
+				},
+				{
+					name: "Peito de peru",
+					price: 3.5
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 	],
@@ -175,12 +382,26 @@ const Orders = {
 			text: "O mais simples da família Galis... Pão com gergelim, frango, alface, tomate, muçarela, picles e cebola roxa.",
 			price: 24,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Substituir por cebola branca",
-				"Ovo",
-				"Molho especial",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Substituir por cebola branca",
+					price: -2
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -190,12 +411,30 @@ const Orders = {
 			text: "O queridinho da galera. Pão com gergelim, frango, alface, tomate, picles, presunto e cheddar",
 			price: 27,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Acrescentar cebola",
-				"Ovo",
-				"Molho especial",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Acrescentar cebola",
+					price: 4
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -205,12 +444,30 @@ const Orders = {
 			text: "Para quem está fora da dieta. Pão com gergelim, frango, alface, tomate, bacon, cheddar, cebola branca e molho especial.",
 			price: 31,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Sem molho especial",
-				"Substituir por cebola roxa",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Sem molho especial",
+					price: -1.5
+				},
+				{
+					name: "Substituir por cebola roxa",
+					price: 2
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -220,18 +477,54 @@ const Orders = {
 			text: "Não demos mole nesse aqui. Pão com gergelim, frango, alface, tomate, picles, cebola branca, bacon, presunto, muçarela, cheddar e gorgonzola.",
 			price: 38,
 			extras: [
-				"Sem gergelim",
-				"Sem salada",
-				"Sem muçarela",
-				"Sem gorgonzola",
-				"Molho especial",
-				"Substituir por cebola roxa",
-				"Mais um frango",
-				"Mais dois frangos",
-				"Dobro de tudo",
-				"Peito de peru",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Sem gergelim",
+					price: -0.5
+				},
+				{
+					name: "Sem salada",
+					price: -6
+				},
+				{
+					name: "Sem muçarela",
+					price: -2
+				},
+				{
+					name: "Sem gorgonzola",
+					price: -12
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Substituir por cebola roxa",
+					price: 2
+				},
+				{
+					name: "Mais um frango",
+					price: 5
+				},
+				{
+					name: "Mais dois frangos",
+					price: 10
+				},
+				{
+					name: "Dobro de tudo",
+					price: 20
+				},
+				{
+					name: "Peito de peru",
+					price: 3.5
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 	],
@@ -244,15 +537,42 @@ const Orders = {
 			text: "Nosso hambúrguer, nosso RG. Pão artesanal, carne de churrasco 300g, alface, tomate, cheddar, cebola caramelizada e molho especial",
 			price: 48,
 			extras: [
-				"Pão australiano",
-				"Sem salada",
-				"Sem molho especial",
-				"Substituir por cebola tradicional",
-				"Mais um bife",
-				"Mais dois bifes",
-				"Bacon",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Pão australiano",
+					price: 3
+				},
+				{
+					name: "Sem salada",
+					price: -7
+				},
+				{
+					name: "Sem molho especial",
+					price: -1.5
+				},
+				{
+					name: "Substituir por cebola tradicional",
+					price: -2
+				},
+				{
+					name: "Mais um bife",
+					price: 8
+				},
+				{
+					name: "Mais dois bifes",
+					price: 16
+				},
+				{
+					name: "Bacon",
+					price: 5
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -262,16 +582,46 @@ const Orders = {
 			text: "Para os amantes da carne de porco. Pão artesanal, carne suína 250g, alface, tomate, picles, iscas de porco, cheddar, cebola roxa e molho picante.",
 			price: 53,
 			extras: [
-				"Pão australiano",
-				"Sem salada",
-				"Sem molho picante",
-				"Substituir por cebola caramelizada",
-				"Mais um bife suíno",
-				"Mais dois bifes suínos",
-				"Bacon",
-				"Molho especial",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Pão australiano",
+					price: 3
+				},
+				{
+					name: "Sem salada",
+					price: -7
+				},
+				{
+					name: "Sem molho picante",
+					price: -2
+				},
+				{
+					name: "Substituir por cebola caramelizada",
+					price: 0.5
+				},
+				{
+					name: "Mais um bife suíno",
+					price: 8.5
+				},
+				{
+					name: "Mais dois bifes suínos",
+					price: 17
+				},
+				{
+					name: "Bacon",
+					price: 5
+				},
+				{
+					name: "Molho especial",
+					price: 1.5
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -281,16 +631,46 @@ const Orders = {
 			text: "Um hambúrguer suíno bem molhado, esse é para você que ama molho de verdade. Pão artesanal, carne suína 250g, alface, tomate, bacon, cheddar e muito molho.",
 			price: 50,
 			extras: [
-				"Pão australiano",
-				"Sem salada",
-				"Sem bacon",
-				"Menos molho",
-				"Mais um bife suíno",
-				"Mais dois bifes suínos",
-				"Cebola tradicional",
-				"Cebola caramelizada",
-				"Ovo",
-				"Banana frita"
+				{
+					name: "Pão australiano",
+					price: 3
+				},
+				{
+					name: "Sem salada",
+					price: -7
+				},
+				{
+					name: "Sem bacon",
+					price: -5
+				},
+				{
+					name: "Menos molho",
+					price: -2
+				},
+				{
+					name: "Mais um bife suíno",
+					price: 8.5
+				},
+				{
+					name: "Mais dois bifes suínos",
+					price: 17
+				},
+				{
+					name: "Cebola tradicional",
+					price: 3
+				},
+				{
+					name: "Cebola caramelizada",
+					price: 3.5
+				},
+				{
+					name: "Ovo",
+					price: 3
+				},
+				{
+					name: "Banana frita",
+					price: 5
+				}
 			]
 		},
 		{
@@ -300,17 +680,50 @@ const Orders = {
 			text: "Provalmente um burguer que você nunca viu na vida. Pão artesanal, carne bovina 250g, tomate, pepino, frango, quiabo, cheddar, cebola roxa e wasabi.",
 			price: 49,
 			extras: [
-				"Pão australiano",
-				"Sem salada",
-				"Sem frango",
-				"Sem quiabo",
-				"Sem wasabi",
-				"Mais um bife",
-				"Mais dois bifes",
-				"Mais frango",
-				"Substituir por cebola tradicional",
-				"Bacon",
-				"Pimenta"
+				{
+					name: "Pão australiano",
+					price: 3
+				},
+				{
+					name: "Sem salada",
+					price: -7
+				},
+				{
+					name: "Sem frango",
+					price: -5
+				},
+				{
+					name: "Sem quiabo",
+					price: -4
+				},
+				{
+					name: "Sem wasabi",
+					price: -8
+				},
+				{
+					name: "Mais um bife",
+					price: 8
+				},
+				{
+					name: "Mais dois bifes",
+					price: 16
+				},
+				{
+					name: "Mais frango",
+					price: 5
+				},
+				{
+					name: "Substituir por cebola tradicional",
+					price: -2
+				},
+				{
+					name: "Bacon",
+					price: 5
+				},
+				{
+					name: "Pimenta",
+					price: 2.5
+				}
 			]
 		},
 	],
@@ -323,18 +736,54 @@ const Orders = {
 			text: "Uma porção média de camarão rosa empanado acompanhado de salada com alface e tomate, vem com limão siciliano.",
 			price: 63,
 			extras: [
-				"Porção grande",
-				"Batata frita",
-				"Mandioca",
-				"Sem salada",
-				"Salpicão",
-				"Salada de maionese",
-				"Arroz",
-				"Arroz integral",
-				"Feijão em calda",
-				"Feijão tropeiro",
-				"Postas de tilápia",
-				"Vinagrete"
+				{
+					name: "Porção grande",
+					price: 27
+				},
+				{
+					name: "Batata frita",
+					price: 4
+				},
+				{
+					name: "Mandioca",
+					price: 4
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Salpicão",
+					price: 6
+				},
+				{
+					name: "Salada de maionese",
+					price: 5
+				},
+				{
+					name: "Arroz",
+					price: 9
+				},
+				{
+					name: "Arroz integral",
+					price: 12
+				},
+				{
+					name: "Feijão em calda",
+					price: 18
+				},
+				{
+					name: "Feijão tropeiro",
+					price: 20
+				},
+				{
+					name: "Postas de tilápia",
+					price: 18.5
+				},
+				{
+					name: "Vinagrete",
+					price: 11
+				}
 			]
 		},
 		{
@@ -344,19 +793,58 @@ const Orders = {
 			text: "Clássica porção de filé mignon com fritas, acompanha salada de pimentão verde e mini tomates.",
 			price: 74,
 			extras: [
-				"Porção maior",
-				"Sem salada",
-				"Substituir batata frita por mandioca",
-				"Substituir filé mignon por picanha",
-				"Arroz",
-				"Arroz integral",
-				"Feijão em calda",
-				"Feijão tropeiro",
-				"Vinagrete",
-				"Farofa",
-				"Barbecue",
-				"Salpicão",
-				"Salada de maionese"
+				{
+					name: "Porção maior",
+					price: 26
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Substituir batata frita por mandioca",
+					price: 0
+				},
+				{
+					name: "Substituir filé mignon por picanha",
+					price: 4
+				},
+				{
+					name: "Arroz",
+					price: 9
+				},
+				{
+					name: "Arroz integral",
+					price: 12
+				},
+				{
+					name: "Feijão em calda",
+					price: 18
+				},
+				{
+					name: "Feijão tropeiro",
+					price: 20
+				},
+				{
+					name: "Vinagrete",
+					price: 11
+				},
+				{
+					name: "Farofa",
+					price: 1
+				},
+				{
+					name: "Barbecue",
+					price: 2
+				},
+				{
+					name: "Salpicão",
+					price: 6
+				},
+				{
+					name: "Salada de maionese",
+					price: 5
+				}
 			]
 		},
 		{
@@ -366,14 +854,38 @@ const Orders = {
 			text: "Uma batata frita caprichada, segue com diversos tipos de molhos e vem banhada com cheddar. Acompanha salada com alface, tomate, brócolis, cebola e limão.",
 			price: 40,
 			extras: [
-				"Queijo ralado",
-				"Sem salada",
-				"Sem molho",
-				"Sem óleo",
-				"Carne",
-				"Substituir cebola branca por cebola roxa",
-				"Torre de batata frita",
-				"Torresmo"
+				{
+					name: "Queijo ralado",
+					price: 1
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Sem molho",
+					price: -3
+				},
+				{
+					name: "Sem óleo",
+					price: 0
+				},
+				{
+					name: "Carne",
+					price: 12
+				},
+				{
+					name: "Substituir cebola branca por cebola roxa",
+					price: 2
+				},
+				{
+					name: "Torre de batata frita",
+					price: 20
+				},
+				{
+					name: "Torresmo",
+					price: 0.5
+				}
 			]
 		},
 		{
@@ -383,16 +895,46 @@ const Orders = {
 			text: "Deliciosa refeição de pescada acompanhada de arroz, feijão, salada e mix de frutas com mandioca.",
 			price: 100,
 			extras: [
-				"Mais peixe",
-				"Sem arroz",
-				"Sem feijão",
-				"Feijão tropeiro",
-				"Sem salada",
-				"Sem fruta",
-				"Substituir mandioca por batata frita",
-				"Mais mandioca ou batata frita",
-				"Sem salpicão",
-				"Salada de maionese"
+				{
+					name: "Mais peixe",
+					price: 18
+				},
+				{
+					name: "Sem arroz",
+					price: -9
+				},
+				{
+					name: "Sem feijão",
+					price: -18
+				},
+				{
+					name: "Feijão tropeiro",
+					price: 20
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Sem fruta",
+					price: -3.5
+				},
+				{
+					name: "Substituir mandioca por batata frita",
+					price: 0
+				},
+				{
+					name: "Mais mandioca ou batata frita",
+					price: 4
+				},
+				{
+					name: "Sem salpicão",
+					price: -6
+				},
+				{
+					name: "Salada de maionese",
+					price: 5
+				}
 			]
 		},
 		{
@@ -402,18 +944,54 @@ const Orders = {
 			text: "Um verdadeiro banquete! Se você está com fome, com certeza essa é a melhor opção. Diversas variedades de saladas, frangos, pães, massas, frutas e molhos!",
 			price: 135,
 			extras: [
-				"Sem salada",
-				"Mais salada",
-				"Sem frango",
-				"Mais frango",
-				"Sem pão",
-				"Mais pão",
-				"Sem massa",
-				"Mais massa",
-				"Sem molho",
-				"Mais molho",
-				"Sem fruta",
-				"Mais fruta"
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Mais salada",
+					price: 10
+				},
+				{
+					name: "Sem frango",
+					price: -5
+				},
+				{
+					name: "Mais frango",
+					price: 5
+				},
+				{
+					name: "Sem pão",
+					price: -2
+				},
+				{
+					name: "Mais pão",
+					price: 2
+				},
+				{
+					name: "Sem massa",
+					price: -14
+				},
+				{
+					name: "Mais massa",
+					price: 14
+				},
+				{
+					name: "Sem molho",
+					price: -4
+				},
+				{
+					name: "Mais molho",
+					price: 4
+				},
+				{
+					name: "Sem fruta",
+					price: -4
+				},
+				{
+					name: "Mais fruta",
+					price: 4
+				}
 			]
 		},
 		{
@@ -423,13 +1001,34 @@ const Orders = {
 			text: "Uma porção generosa de filé de frango empanado com salada de maionese do cheff e mix de folhas.",
 			price: 110,
 			extras: [
-				"Salada de maionese tradicional",
-				"Sem salada de maionese",
-				"Sem salada",
-				"Batata sem óleo",
-				"Substituir batata frita por mandioca",
-				"Porção menor",
-				"Molho"
+				{
+					name: "Salada de maionese tradicional",
+					price: -1
+				},
+				{
+					name: "Sem salada de maionese",
+					price: -6
+				},
+				{
+					name: "Sem salada",
+					price: -10
+				},
+				{
+					name: "Batata sem óleo",
+					price: 0
+				},
+				{
+					name: "Substituir batata frita por mandioca",
+					price: 0
+				},
+				{
+					name: "Porção menor",
+					price: -24
+				},
+				{
+					name: "Molho",
+					price: 3
+				}
 			]
 		},
 	],
@@ -442,11 +1041,26 @@ const Orders = {
 			text: "Para dar aquela acordada... Trabalhamos com TNT, Red Bull, Fusion, Monster e Reign.",
 			price: 9,
 			extras: [
-				"TNT",
-				"Red Bull",
-				"Fusion",
-				"Monster",
-				"Reign"
+				{
+					name: "TNT",
+					price: 0
+				},
+				{
+					name: "Red Bull",
+					price: 0
+				},
+				{
+					name: "Fusion",
+					price: 0
+				},
+				{
+					name: "Monster",
+					price: 0
+				},
+				{
+					name: "Reign",
+					price: 0
+				}
 			]
 		},
 		{
@@ -456,11 +1070,26 @@ const Orders = {
 			text: "Super refrescante e sempre gelado. Temos Coca-Cola, Fanta, Guaraná, Pepsi e Sprite.",
 			price: 11,
 			extras: [
-				"Coca-Cola",
-				"Fanta",
-				"Guaraná",
-				"Pepsi",
-				"Sprite"
+				{
+					name: "Coca-Cola",
+					price: 0
+				},
+				{
+					name: "Fanta",
+					price: 0
+				},
+				{
+					name: "Guaraná",
+					price: 0
+				},
+				{
+					name: "Pepsi",
+					price: 0
+				},
+				{
+					name: "Sprite",
+					price: 0
+				}
 			]
 		},
 		{
@@ -470,22 +1099,70 @@ const Orders = {
 			text: "100% natural, fazemos na hora! Temos jarras de 300ml, 500ml e também no copo. Temos suco de abacaxi com hortelã, laranja, caju, graviola e acerola.",
 			price: 11,
 			extras: [
-				"Abacaxi com hortelã (300ml)",
-				"Abacaxi com hortelã (500ml)",
-				"Abacaxi com hortelã (Copo)",
-				"Laranja (300ml)",
-				"Laranja (500ml)",
-				"Laranja (Copo)",
-				"Caju (300ml)",
-				"Caju (500ml)",
-				"Caju (Copo)",
-				"Graviola (300ml)",
-				"Graviola (500ml)",
-				"Graviola (Copo)",
-				"Acerola (300ml)",
-				"Acerola (500ml)",
-				"Acerola (Copo)",
-				"Sem açúcar"
+				{
+					name: "Abacaxi com hortelã (300ml)",
+					price: 1
+				},
+				{
+					name: "Abacaxi com hortelã (500ml)",
+					price: 2
+				},
+				{
+					name: "Abacaxi com hortelã (Copo)",
+					price: 0
+				},
+				{
+					name: "Laranja (300ml)",
+					price: 1
+				},
+				{
+					name: "Laranja (500ml)",
+					price: 2
+				},
+				{
+					name: "Laranja (Copo)",
+					price: 0
+				},
+				{
+					name: "Caju (300ml)",
+					price: 1
+				},
+				{
+					name: "Caju (500ml)",
+					price: 2
+				},
+				{
+					name: "Caju (Copo)",
+					price: 0
+				},
+				{
+					name: "Graviola (300ml)",
+					price: 1
+				},
+				{
+					name: "Graviola (500ml)",
+					price: 2
+				},
+				{
+					name: "Graviola (Copo)",
+					price: 0
+				},
+				{
+					name: "Acerola (300ml)",
+					price: 1
+				},
+				{
+					name: "Acerola (500ml)",
+					price: 2
+				},
+				{
+					name: "Acerola (Copo)",
+					price: 0
+				},
+				{
+					name: "Sem açúcar",
+					price: 0
+				}
 			]
 		},
 		{
@@ -495,9 +1172,18 @@ const Orders = {
 			text: "Água é sempre bom, zero calorias e tem em todo lugar. Temos água mineral natural, com gás ou tônica.",
 			price: 3.5,
 			extras: [
-				"Água mineral natural",
-				"Água com gás",
-				"Água tônica"
+				{
+					name: "Água mineral natural",
+					price: 0
+				},
+				{
+					name: "Água com gás",
+					price: 0.5
+				},
+				{
+					name: "Água tônica",
+					price: 0.5
+				}
 			]
 		},
 		{
@@ -507,11 +1193,26 @@ const Orders = {
 			text: "Que tal aquela gelada com os amigos? Se beber não dirija, tenha sempre uma carona. Temos Stella Artois, Heineken, Spaten, Corona e Budweiser.",
 			price: 13,
 			extras: [
-				"Stella Artois",
-				"Heineken",
-				"Spaten",
-				"Corona",
-				"Budweiser"
+				{
+					name: "Stella Artois",
+					price: 0
+				},
+				{
+					name: "Heineken",
+					price: 0
+				},
+				{
+					name: "Spaten",
+					price: 0
+				},
+				{
+					name: "Corona",
+					price: 0
+				},
+				{
+					name: "Budweiser",
+					price: 0
+				}
 			]
 		},
 		{
@@ -521,18 +1222,54 @@ const Orders = {
 			text: "Só temos Gatorade e Powerade, mas temos todos os sabores! É só pedir para a gente.",
 			price: 8,
 			extras: [
-				"Gatorade de uva",
-				"Gatorade de laranja",
-				"Gatorade de limão",
-				"Gatorade de tangerina",
-				"Gatorade de morango com maracujá",
-				"Gatorade de maracujá",
-				"Gatorade de frutas cítricas",
-				"Powerade de mix de frutas",
-				"Powerade de limão",
-				"Powerade de laranja",
-				"Powerade de uva",
-				"Powerade de frutas tropicais",
+				{
+					name: "Gatorade de uva",
+					price: 0
+				},
+				{
+					name: "Gatorade de laranja",
+					price: 0
+				},
+				{
+					name: "Gatorade de limão",
+					price: 0
+				},
+				{
+					name: "Gatorade de tangerina",
+					price: 0
+				},
+				{
+					name: "Gatorade de morango com maracujá",
+					price: 0
+				},
+				{
+					name: "Gatorade de maracujá",
+					price: 0
+				},
+				{
+					name: "Gatorade de frutas cítricas",
+					price: 0
+				},
+				{
+					name: "Powerade de mix de frutas",
+					price: 0
+				},
+				{
+					name: "Powerade de limão",
+					price: 0
+				},
+				{
+					name: "Powerade de laranja",
+					price: 0
+				},
+				{
+					name: "Powerade de uva",
+					price: 0
+				},
+				{
+					name: "Powerade de frutas tropicais",
+					price: 0
+				}
 			]
 		},
 	],
@@ -545,9 +1282,18 @@ const Orders = {
 			text: "Cremosa sobremesa de maracujá, todos amam! Possui blueberrys e framboesa.",
 			price: 12,
 			extras: [
-				"Sem blueberrys",
-				"Sem framboesa",
-				"Sem lactose"
+				{
+					name: "Sem blueberrys",
+					price: -4
+				},
+				{
+					name: "Sem framboesa",
+					price: -3
+				},
+				{
+					name: "Sem lactose",
+					price: 0
+				}
 			]
 		},
 		{
@@ -557,9 +1303,18 @@ const Orders = {
 			text: "Delicioso pudim de leite condensado com calda de caramelo e coco ralado por cima.",
 			price: 10,
 			extras: [
-				"Sem coco ralado",
-				"Sem calda de caramelo",
-				"Sem lactose"
+				{
+					name: "Sem coco ralado",
+					price: -3
+				},
+				{
+					name: "Sem calda de caramelo",
+					price: -4
+				},
+				{
+					name: "Sem lactose",
+					price: 0
+				}
 			]
 		},
 	]

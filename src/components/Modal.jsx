@@ -37,6 +37,15 @@ export function Order({
 		return () => window.removeEventListener("keydown", esc)
 	}, [])
 
+	const maskForPrice = (price = 0) => {
+		const mask = parseFloat(price).toLocaleString("pt-BR", {
+			minimumFractionDigits: 2,
+			maximumFractionDigits: 2
+		})
+
+		return `R$ ${mask}`
+	}
+
 	const date = new Date()
 	const hours = date.getHours()
 
@@ -69,25 +78,47 @@ export function Order({
 							</p>
 						)}
 
-						{extras.slice().sort().map((extraItem, index) => (
-							<React.Fragment>
-								<div key={index} className="flex items-center">
-									<input
-										type="checkbox"
-										id={`extra-${index}`}
-										name={`extra-${index}`}
-										className="m-2 cursor-pointer w-4 h-4 accent-green-400"
-									/>
-									<label
-										htmlFor={`extra-${index}`}
-										className="text-sm italic cursor-pointer"
+						{extras
+							.sort((extraToOrder, extraOrdered) => extraToOrder.name.localeCompare(extraOrdered.name))
+							.map((extraItem, index) => (
+								<React.Fragment>
+									<div
+										key={index}
+										className="flex items-center justify-between"
 									>
-										{extraItem.trim()}
-									</label>
-								</div>
-								<div className="p-px mb-1 mt-1 bg-slate-300"></div>
-							</React.Fragment>
-						))}
+										<div>
+											<input
+												type="checkbox"
+												id={`extra-${index}`}
+												name={`extra-${index}`}
+												className="m-2 cursor-pointer w-3.5 h-3.5 accent-stone-400"
+											/>
+											<label
+												htmlFor={`extra-${index}`}
+												className="text-sm italic cursor-pointer hover:font-medium"
+											>
+												{extraItem.name.trim()}
+											</label>
+										</div>
+										{extraItem.price > 0 && (
+											<div className="italic text-sm font-medium text-green-400 hover:text-green-600 transition duration-300">
+												{maskForPrice(extraItem.price)}
+											</div>
+										)}
+										{extraItem.price === 0 && (
+											<div className="italic text-sm font-medium text-gray-400 hover:text-gray-600 transition duration-300">
+												Não altera o valor
+											</div>
+										)}
+										{extraItem.price < 0 && (
+											<div className="italic text-sm font-medium text-red-400 hover:text-red-600 transition duration-300">
+												{maskForPrice(extraItem.price)}
+											</div>
+										)}
+									</div>
+									<div className="p-px mb-1 mt-1 bg-slate-300"></div>
+								</React.Fragment>
+							))}
 
 						<div className="flex items-center mt-5">
 							<Pencil className="text-slate-700 w-6 h-6" />
@@ -100,8 +131,8 @@ export function Order({
 
 						<div className="flex justify-between mt-5">
 
-							<span className="text-lg font-bold">
-								{`R$${price.toFixed(2).replace(".", ",")}`}
+							<span className="text-lg font-medium">
+								{maskForPrice(price)}
 							</span>
 
 							<div>

@@ -68,7 +68,7 @@ export function MenuOrder({
 				className="h-24"
 			></div>
 			<details open
-				className={`mx-auto w-10/12 bg-stone-700 ${isLastCategory ? "pb-9" : ""}`}
+				className={`mx-auto w-10/12 bg-stone-700 ${isLastCategory ? "pb-24" : ""}`}
 			>
 				<summary className="text-white text-lg font-bold mb-4 cursor-pointer">
 					{category}
