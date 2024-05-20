@@ -7,8 +7,19 @@ import * as Modal from "./Modal"
 export function MenuList({
 	option
 }) {
+	const anchor = event => {
+		event.preventDefault()
+
+		document.getElementById(option).scrollIntoView({
+			behavior: "smooth"
+		})
+	}
+
 	return (
-		<p className="inline text-white/60 cursor-pointer hover:text-white transition duration-300 active:opacity-20">
+		<p
+			onClick={anchor}
+			className="inline text-white/60 cursor-pointer hover:text-white transition duration-300 active:opacity-20"
+		>
 			{option}
 		</p>
 	)
@@ -17,7 +28,8 @@ export function MenuList({
 export function MenuOrder({
 	category,
 	items = [],
-	searchTerm = ""
+	searchTerm = "",
+	isLastCategory = false
 }) {
 	const [selectedItem, setSelectedItem] = useState(null)
 	const [modalKey, setModalKey] = useState(Math.random())
@@ -30,14 +42,18 @@ export function MenuOrder({
 	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
 	const filterResultText = () => {
+		let results = `Seu filtro encontrou ${filteredItems.length} resultados`
+
 		switch (filteredItems.length) {
 			case 0:
-				return "Nada foi encontrado"
+				results = "Nada foi encontrado"
+				break
 			case 1:
-				return "Seu filtro encontrou 1 resultado"
-			default:
-				return `Seu filtro encontrou ${filteredItems.length} resultados`
+				results = "Seu filtro encontrou 1 resultado"
+				break
 		}
+
+		return results
 	}
 
 	const itemCol1 = filteredItems.filter((_, index) => index % 2 === 0)
@@ -47,7 +63,13 @@ export function MenuOrder({
 
 	return (
 		<React.Fragment>
-			<details open className="mx-auto w-10/12 bg-stone-700 pt-9 pb-9">
+			<div
+				id={category}
+				className="h-24"
+			></div>
+			<details open
+				className={`mx-auto w-10/12 bg-stone-700 ${isLastCategory ? "pb-9" : ""}`}
+			>
 				<summary className="text-white text-lg font-bold mb-4 cursor-pointer">
 					{category}
 				</summary>

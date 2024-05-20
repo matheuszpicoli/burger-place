@@ -74,6 +74,7 @@ function MPBurger() {
 					category={"Sobremesas"}
 					items={Orders.desserts}
 					searchTerm={foundWord}
+					isLastCategory={true}
 				/>
 			</main>
 
