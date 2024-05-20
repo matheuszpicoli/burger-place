@@ -20,7 +20,12 @@ export function MenuOrder({
 	searchTerm = ""
 }) {
 	const [selectedItem, setSelectedItem] = useState(null)
-	const toggleModal = item => setSelectedItem(item)
+	const [modalKey, setModalKey] = useState(Math.random())
+
+	const toggleModal = item => {
+		setSelectedItem(item)
+		setModalKey(Math.random())
+	}
 
 	const filteredItems = items.filter(item => item.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
@@ -118,7 +123,7 @@ export function MenuOrder({
 
 			{selectedItem && (
 				<Modal.Order
-					key={selectedItem.id}
+					key={selectedItem.id && modalKey}
 					description={selectedItem.description}
 					text={selectedItem.text}
 					extras={selectedItem.extras}

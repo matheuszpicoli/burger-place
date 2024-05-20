@@ -20,7 +20,7 @@ export function Order({
 }) {
 	const [modalOpen, setModalOpen] = useState(true)
 
-	const toggleModalState = () => setModalOpen(false)
+	const toggleModalState = () => setModalOpen(!modalOpen)
 
 	useLayoutEffect(() => {
 		if (modalOpen) document.body.style.overflow = "hidden"
