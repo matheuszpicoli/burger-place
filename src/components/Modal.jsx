@@ -19,6 +19,7 @@ export function Order({
 	price
 }) {
 	const [modalOpen, setModalOpen] = useState(true)
+	const [totalPrice, setTotalPrice] = useState(price)
 
 	const toggleModalState = () => setModalOpen(!modalOpen)
 
@@ -36,6 +37,11 @@ export function Order({
 
 		return () => window.removeEventListener("keydown", esc)
 	}, [])
+
+	const handleCheckbox = (event, extraPrice) => {
+		if (event.target.checked) setTotalPrice(previousPrice => previousPrice + extraPrice)
+		else setTotalPrice(previousPrice => previousPrice - extraPrice)
+	}
 
 	const maskForPrice = (price = 0) => {
 		const mask = parseFloat(price).toLocaleString("pt-BR", {
@@ -92,6 +98,7 @@ export function Order({
 												id={`extra-${index}`}
 												name={`extra-${index}`}
 												className="m-2 cursor-pointer w-3.5 h-3.5 accent-stone-400"
+												onChange={event => handleCheckbox(event, extraItem.price)}
 											/>
 											<label
 												htmlFor={`extra-${index}`}
@@ -132,7 +139,7 @@ export function Order({
 						<div className="flex justify-between mt-5">
 
 							<span className="text-lg font-medium">
-								{maskForPrice(price)}
+								{maskForPrice(totalPrice)}
 							</span>
 
 							<div>
