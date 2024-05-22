@@ -20,6 +20,7 @@ export function Order({
 }) {
 	const [modalOpen, setModalOpen] = useState(true)
 	const [totalPrice, setTotalPrice] = useState(price)
+	const [selectedExtras, setSelectedExtras] = useState([])
 	const [observation, setObservation] = useState("")
 
 	const [cart, setCart] = useState(() => {
@@ -49,16 +50,21 @@ export function Order({
 		localStorage.setItem("cart", JSON.stringify(cart))
 	}, [cart])
 
-	const handleCheckbox = (event, extraPrice) => {
-		if (event.target.checked) setTotalPrice(previousPrice => previousPrice + extraPrice)
-		else setTotalPrice(previousPrice => previousPrice - extraPrice)
+	const handleCheckbox = (event, extraPrice, extraItem) => {
+		if (event.target.checked) {
+			setTotalPrice(previousPrice => previousPrice + extraPrice)
+			setSelectedExtras([...selectedExtras, extraItem])
+		} else {
+			setTotalPrice(previousPrice => previousPrice - extraPrice)
+			setSelectedExtras(selectedExtras.filter(item => item !== extraItem))
+		}
 	}
 
 	const addToCart = () => {
 		const newItem = {
 			description,
 			text,
-			extras,
+			extras: selectedExtras,
 			price: totalPrice,
 			observation
 		}
@@ -120,7 +126,7 @@ export function Order({
 												id={`extra-${index}`}
 												name={`extra-${index}`}
 												className="m-2 cursor-pointer w-3.5 h-3.5 accent-stone-400"
-												onChange={event => handleCheckbox(event, extraItem.price)}
+												onChange={event => handleCheckbox(event, extraItem.price, extraItem)}
 											/>
 											<label
 												htmlFor={`extra-${index}`}

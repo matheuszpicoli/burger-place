@@ -96,15 +96,16 @@ export default function Cart() {
 								})}
 							</small>
 							<div className="p-px bg-slate-300 mt-1 mb-1 rounded-l rounded-r"></div>
-							<small className="block">
-								Total de extras: <span className="text-yellow-600">{maskForPrice(totalExtras)}</span>
-							</small>
+							{totalExtras !== 0 && (
+								<small className="block">
+									Total de extras: <span className="text-yellow-600">{maskForPrice(totalExtras)}</span>
+								</small>
+							)}
 							{item.observation && (
 								<small>
 									<span className="font-bold">Observações do pedido: </span>{item.observation}
 								</small>
-							)
-							}
+							)}
 						</div>
 					)
 				})}
