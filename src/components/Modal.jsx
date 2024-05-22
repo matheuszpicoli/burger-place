@@ -20,6 +20,7 @@ export function Order({
 }) {
 	const [modalOpen, setModalOpen] = useState(true)
 	const [totalPrice, setTotalPrice] = useState(price)
+	const [observation, setObservation] = useState("")
 
 	const [cart, setCart] = useState(() => {
 		const savededInCart = localStorage.getItem("cart")
@@ -59,6 +60,7 @@ export function Order({
 			text,
 			extras,
 			price: totalPrice,
+			observation
 		}
 
 		setCart([...cart, newItem])
@@ -77,7 +79,7 @@ export function Order({
 	const date = new Date()
 	const hours = date.getHours()
 
-	const openingTime = 18
+	const openingTime = 1
 	const closingTime = 23
 
 	const isOpen = hours >= openingTime && hours < closingTime
@@ -152,6 +154,8 @@ export function Order({
 							<input
 								type="text"
 								placeholder="Alguma observação?"
+								value={observation}
+								onChange={event => setObservation(event.target.value)}
 								className="ml-2 p-2 border-b-2 border-slate-700 bg-slate-300 rounded-sm w-full text-sm outline-none cursor-pointer hover:opacity-60 active:opacity-100 transition duration-300"
 							/>
 						</div>
