@@ -1,20 +1,21 @@
 //- React
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 //- React Router DOM
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 //- Tailwind CSS
 import "./index.css"
 
 //- Components
-import * as Header from './components/Header'
-import * as Main from './components/Main'
-import Cart from './routes/Cart'
-import Footer from './components/Footer'
+import * as Header from "./components/Header"
+import * as Main from "./components/Main"
+import Footer from "./components/Footer"
+
+import Cart from "./routes/Cart"
 
 //- Assets
-import Orders from './assets/Orders'
+import Orders from "./assets/Orders"
 
 function MPBurger() {
 	const [foundWord, setFoundWord] = useState("")
@@ -27,15 +28,15 @@ function MPBurger() {
 					path="/"
 					element={
 						<React.Fragment>
-							<header className='sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center'>
+							<header className="sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center">
 								<Header.Menu />
 								<Header.Search onSearch={setFoundWord} />
 							</header>
-							<header className='bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center'>
+							<header className="bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center">
 								<Header.Operation />
 							</header>
-							<main className='bg-stone-700'>
-								<nav className='h-10 flex justify-around items-center sticky top-14 backdrop-blur'>
+							<main className="bg-stone-700">
+								<nav className="h-10 flex justify-around items-center sticky top-14 backdrop-blur">
 									<Main.MenuList option={"Entradas"} />
 									<Main.MenuList option={"Padrões"} />
 									<Main.MenuList option={"Chicken"} />

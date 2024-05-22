@@ -2,7 +2,7 @@
 import React, { useState, useLayoutEffect } from "react"
 
 //- React Icon
-import { IoIosCloseCircleOutline as Close } from "react-icons/io";
+import { IoIosCloseCircleOutline as Close } from "react-icons/io"
 import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
 import { GoPencil as Pencil } from "react-icons/go"
 
@@ -21,6 +21,12 @@ export function Order({
 	const [modalOpen, setModalOpen] = useState(true)
 	const [totalPrice, setTotalPrice] = useState(price)
 
+	const [cart, setCart] = useState(() => {
+		const savededInCart = localStorage.getItem("cart")
+
+		return savededInCart ? JSON.parse(savededInCart) : []
+	})
+
 	const toggleModalState = () => setModalOpen(!modalOpen)
 
 	useLayoutEffect(() => {
@@ -38,9 +44,25 @@ export function Order({
 		return () => window.removeEventListener("keydown", esc)
 	}, [])
 
+	useLayoutEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(cart))
+	}, [cart])
+
 	const handleCheckbox = (event, extraPrice) => {
 		if (event.target.checked) setTotalPrice(previousPrice => previousPrice + extraPrice)
 		else setTotalPrice(previousPrice => previousPrice - extraPrice)
+	}
+
+	const addToCart = () => {
+		const newItem = {
+			description,
+			text,
+			extras,
+			price: totalPrice,
+		}
+
+		setCart([...cart, newItem])
+		toggleModalState()
 	}
 
 	const maskForPrice = (price = 0) => {
@@ -145,15 +167,17 @@ export function Order({
 									onClick={toggleModalState}
 									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
 								>
-									<Close className="w-6 h-6 inline" />
+									<Close className="inline w-6 h-6" />
 									<span className="align-middle italic">
 										Cancelar
 									</span>
 								</button>
 								{isOpen && (
-									//? Criar uma função no onClick do botão que de fato envie ao carrinho...
-									<button className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300">
-										<Confirm className="w-6 h-6 inline" />
+									<button
+										onClick={addToCart}
+										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
+									>
+										<Confirm className="inline w-6 h-6" />
 										<span className="align-middle italic">
 											Adicionar ao carrinho
 										</span>
