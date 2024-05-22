@@ -55,7 +55,6 @@ export default function Cart() {
 
 				{cart.map((item, index) => {
 					const totalExtras = item.extras.reduce((extraSum, extra) => extraSum + extra.price, 0)
-					const totalPrice = item.price + totalExtras
 
 					return (
 						<div
@@ -77,7 +76,7 @@ export default function Cart() {
 							</h2>
 
 							<p className="text-green-600">
-								{maskForPrice(totalPrice)}
+								{maskForPrice(item.price)}
 							</p>
 							<small>
 								{item.extras.map((extra, index) => {
