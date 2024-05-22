@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import * as Modal from "./Modal"
 
 //- React Icons
+import { MdOutlineArrowBack as Back } from "react-icons/md"
 import { IoFastFoodOutline as Logo } from "react-icons/io5"
 import { FaClock as Clock } from "react-icons/fa"
 import { IoSearchOutline as Find } from "react-icons/io5"
@@ -28,7 +29,9 @@ export function Search({
 	)
 }
 
-export function Menu() {
+export function Menu({
+	hasBackIcon = false
+}) {
 	const returnToTop = () => window.scrollTo(0, 0)
 
 	return (
@@ -36,6 +39,7 @@ export function Menu() {
 			className="cursor-pointer font-bold text-xl ml-5 text-slate-200 hover:opacity-70 active:opacity-100 transition duration-300"
 			onClick={returnToTop}
 		>
+			{hasBackIcon && <Back className="inline w-6 h-6 mr-6" />}
 			<Logo className="inline w-6 h-6 mr-1" />
 			<span className="align-middle">
 				<span className="text-red-500">MP</span> Burger

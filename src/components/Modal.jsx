@@ -151,10 +151,8 @@ export function Order({
 									</span>
 								</button>
 								{isOpen && (
-									<button
-										onClick={toggleModalState}
-										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
-									>
+									//? Criar uma função no onClick do botão que de fato envie ao carrinho...
+									<button className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300">
 										<Confirm className="w-6 h-6 inline" />
 										<span className="align-middle italic">
 											Adicionar ao carrinho
