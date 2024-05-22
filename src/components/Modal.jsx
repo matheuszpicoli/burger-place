@@ -85,7 +85,7 @@ export function Order({
 	const date = new Date()
 	const hours = date.getHours()
 
-	const openingTime = 1
+	const openingTime = 18
 	const closingTime = 23
 
 	const isOpen = hours >= openingTime && hours < closingTime
@@ -93,9 +93,9 @@ export function Order({
 	return (
 		modalOpen && (
 			<React.Fragment>
-				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
+				<div className="fixed inset-0 backdrop-blur-sm z-20"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20 animate-modal"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<h1 className="font-bold text-center uppercase mb-6">{description}</h1>
@@ -236,9 +236,9 @@ export function OfficeHour({
 	return (
 		modalOpen && (
 			<React.Fragment>
-				<div className="fixed inset-0 backdrop-blur-sm z-10"></div>
+				<div className="fixed inset-0 backdrop-blur-sm z-20"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-20 animate-modal"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<section>

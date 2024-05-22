@@ -28,15 +28,15 @@ function MPBurger() {
 					path="/"
 					element={
 						<React.Fragment>
-							<header className="sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center">
+							<header className="sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center z-10">
 								<Header.Menu />
 								<Header.Search onSearch={setFoundWord} />
 							</header>
-							<header className="bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center">
+							<header className="bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center z-10">
 								<Header.Operation />
 							</header>
 							<main className="bg-stone-700">
-								<nav className="h-10 flex justify-around items-center sticky top-14 backdrop-blur">
+								<nav className="h-10 flex justify-around items-center sticky top-14 backdrop-blur z-10">
 									<Main.MenuList option={"Entradas"} />
 									<Main.MenuList option={"Padrões"} />
 									<Main.MenuList option={"Chicken"} />
