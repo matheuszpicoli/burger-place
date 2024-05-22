@@ -12,12 +12,19 @@ export default function Footer({
 	location
 }) {
 	const [cartItemsCount, setCartItemsCount] = useState(0)
+	const [showPopover, setShowPopover] = useState(true)
 
 	useLayoutEffect(() => {
 		const savededInCart = localStorage.getItem("cart")
 		const cartItems = savededInCart ? JSON.parse(savededInCart) : []
 
 		setCartItemsCount(cartItems.length)
+	}, [])
+
+	useLayoutEffect(() => {
+		const popoverTime = setTimeout(() => setShowPopover(false), 5000)
+
+		return () => clearTimeout(popoverTime)
 	}, [])
 
 	return (
@@ -27,18 +34,26 @@ export default function Footer({
 				<i>{location}</i>
 			</div>
 
+
 			{cartItemsCount > 0 && (
-				<Link
-					to={"/cart"}
-					className="hover:text-white transition duration-300 active:opacity-20 animate-shake"
-				>
-					<ShoppingCart className="inline w-6 h-6 mr-2" />
-					Ver carrinho
-					<sup className="p-1 m-1 font-bold">
-						{cartItemsCount === 1 && `${cartItemsCount} item`}
-						{cartItemsCount > 1 && `${cartItemsCount} itens`}
-					</sup>
-				</Link>
+				<React.Fragment>
+					{showPopover && (
+						<div className="fixed bottom-10 bg-white right-32 text-black p-3 rounded-l rounded-r bg-opacity-60 animate-fade-in">
+							Seus pedidos aparecem aqui
+						</div>
+					)}
+					<Link
+						to={"/cart"}
+						className="hover:text-white transition duration-300 active:opacity-20 animate-shake"
+					>
+						<ShoppingCart className="inline w-6 h-6 mr-2" />
+						Ver carrinho
+						<sup className="p-1 m-1 font-bold">
+							{cartItemsCount === 1 && `${cartItemsCount} item`}
+							{cartItemsCount > 1 && `${cartItemsCount} itens`}
+						</sup>
+					</Link>
+				</React.Fragment>
 			)}
 		</div>
 	)
