@@ -184,7 +184,10 @@ export function Order({
 								</button>
 								{isOpen && (
 									<button
-										onClick={addToCart}
+										onClick={() => {
+											addToCart()
+											window.location.reload()
+										}}
 										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
 									>
 										<Confirm className="inline w-6 h-6" />

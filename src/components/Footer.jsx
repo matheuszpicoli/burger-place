@@ -30,7 +30,7 @@ export default function Footer({
 			{cartItemsCount > 0 && (
 				<Link
 					to={"/cart"}
-					className="hover:text-white transition duration-300 active:opacity-20"
+					className="hover:text-white transition duration-300 active:opacity-20 animate-shake"
 				>
 					<ShoppingCart className="inline w-6 h-6 mr-2" />
 					Ver carrinho

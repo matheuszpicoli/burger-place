@@ -59,7 +59,7 @@ export default function Cart() {
 					return (
 						<div
 							key={index}
-							className="bg-white border-y-2 border-x-2 w-2/5 rounded-l rounded-r m-3 p-3 cursor-default hover:bg-gradient-to-r from-black/10 via-black/10 to-transparent animate-fade-in"
+							className="bg-white border-y-2 border-x-2 w-2/5 rounded-l rounded-r m-3 p-3 cursor-default hover:bg-gradient-to-r from-black/20 via-black/20 to-transparent animate-fade-in"
 						>
 							<h2 className="uppercase tracking-wide font-bold flex justify-between">
 								{item.description}

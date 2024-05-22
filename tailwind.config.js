@@ -22,7 +22,8 @@ export const theme = {
 		},
 		animation: {
 			"modal": "modal 150ms linear 1",
-			"fade-in": "fade-in 500ms ease-out"
+			"fade-in": "fade-in 500ms ease-out",
+			"shake": "shake 600ms linear 3"
 		},
 		keyframes: {
 			"modal": {
@@ -44,7 +45,24 @@ export const theme = {
 					opacity: "1",
 					transform: "translateY(0)"
 				}
-			}
+			},
+			"shake": {
+				"0%": {
+					transform: "rotate(0deg)"
+				},
+				"25%": {
+					transform: "rotate(15deg)"
+				},
+				"50%": {
+					transform: "rotate(0deg)"
+				},
+				"75%": {
+					transform: "rotate(-15deg)"
+				},
+				"100%": {
+					transform: "rotate(0deg)"
+				}
+			},
 		},
 		transitionProperty: {
 			"height": "height",
