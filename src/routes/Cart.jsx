@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 
 //- Components
 import * as Header from "../components/Header"
+import Form from "../components/Form"
 
 //- React Icons
 import { MdShoppingCart as ShoppingCart } from "react-icons/md"
@@ -41,9 +42,11 @@ export default function Cart() {
 				<Link to={"/"}>
 					<Header.Menu hasBackIcon={true} />
 				</Link>
-				<h1 className="mr-2 cursor-default">
+				<h1 className="mr-6 cursor-default">
 					<ShoppingCart className="inline mr-2 w-6 h-6 text-red-500" />
-					Carrinho
+					<span className="font-semibold align-middle">
+						Carrinho
+					</span>
 				</h1>
 			</header>
 			<header className="bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center z-10">
@@ -66,14 +69,14 @@ export default function Cart() {
 						return (
 							<div
 								key={index}
-								className="flex flex-col bg-white border-y-2 border-x-2 rounded-l rounded-r m-3 p-3 cursor-default hover:bg-gradient-to-r from-black/20 via-black/20 to-transparent animate-fade-in"
+								className="flex flex-col bg-white border-y-2 border-x-2 rounded-l rounded-r m-3 p-3 cursor-default hover:bg-gradient-to-b from-black/10 via-black/10 to-transparent animate-fade-in"
 							>
-								<h2 className="uppercase tracking-wide font-bold flex justify-between">
+								<h2 className="uppercase tracking-wide font-medium flex justify-between">
 									{item.description}
 
 									<button
 										onClick={() => removeFromCart(index)}
-										className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
+										className="text-red-600 opacity-60 hover:opacity-100 active:opacity-60 transition duration-300"
 									>
 										<Close className="inline w-5 h-5" />
 										<span className="text-xs ml-1 align-middle italic">
@@ -82,7 +85,7 @@ export default function Cart() {
 									</button>
 								</h2>
 
-								<p className="text-green-600">
+								<p className="text-green-600 font-semibold">
 									{maskForPrice(item.price)}
 								</p>
 								<small>
@@ -103,13 +106,13 @@ export default function Cart() {
 								</small>
 								<div className="p-px bg-slate-300 mt-1 mb-1 rounded-l rounded-r"></div>
 								{totalExtras !== 0 && (
-									<small className="block">
-										Total de extras: <span className="text-yellow-600">{maskForPrice(totalExtras)}</span>
+									<small className="block font-medium">
+										Complementos: <span className="text-yellow-600 underline">{maskForPrice(totalExtras)}</span>
 									</small>
 								)}
 								{item.observation && (
 									<small>
-										<span className="font-bold">Observações do pedido: </span>{item.observation}
+										<span className="font-medium">Observações do pedido: </span>{item.observation}
 									</small>
 								)}
 							</div>
@@ -124,6 +127,8 @@ export default function Cart() {
 							Complete seu pedido
 						</span>
 					</h1>
+
+					<Form />
 				</div>
 			</main>
 		</React.Fragment>
