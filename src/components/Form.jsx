@@ -21,12 +21,17 @@ export default function Form({
 	})
 
 	useLayoutEffect(() => {
-		const orders = cart.map(item => ({
-			description: item.description,
-			extras: item.extras.map(extra => extra.name),
-			observation: item.observation,
-			price: item.price
-		}))
+		const orders = cart.map(item => {
+			let order = {
+				description: item.description,
+				price: item.price
+			}
+
+			if (item.extras.length > 0) order.extras = item.extras.map(extra => extra.name)
+			if (item.observation) order.observation = item.observation
+
+			return order
+		})
 
 		setDataForm(prevForm => ({
 			...prevForm, order: orders
@@ -109,7 +114,7 @@ export default function Form({
 						<div className="flex items-center">
 							<input
 								type="text"
-								className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow disabled:bg-slate-400 disabled:pointer-events-none"
+								className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 								id="address"
 								name="address"
 								placeholder="Endereço"
@@ -142,7 +147,7 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24 disabled:bg-slate-400 disabled:pointer-events-none"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 									id="zipCode"
 									name="zipCode"
 									placeholder="CEP"
@@ -162,7 +167,7 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 									id="neighborhood"
 									name="neighborhood"
 									placeholder="Bairro"
@@ -180,7 +185,7 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28 disabled:bg-slate-400 disabled:pointer-events-none"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 									id="number"
 									name="number"
 									value={dataForm.number}
@@ -202,7 +207,7 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 									id="reference-point"
 									name="referencePoint"
 									placeholder="Ponto de Referência"
@@ -220,7 +225,7 @@ export default function Form({
 								<div className="flex flex-row">
 									<input
 										type="radio"
-										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none"
+										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 										id="house"
 										value="house"
 										name="complement"
@@ -236,7 +241,7 @@ export default function Form({
 
 									<input
 										type="radio"
-										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none"
+										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 										id="apartment"
 										value="apartment"
 										name="complement"
