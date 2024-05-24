@@ -78,7 +78,10 @@ export default function Form({
 
 		if (
 			(!dataForm.address && !dataForm.local) ||
-			((!dataForm.zipCode && !dataForm.local) || dataForm.zipCode.length < 9) ||
+			(
+				(!dataForm.zipCode && !dataForm.local) ||
+				(dataForm.zipCode.length < 9 && !dataForm.local)
+			) ||
 			(!dataForm.neighborhood && !dataForm.local) ||
 			(!dataForm.number && !dataForm.local) ||
 			(!dataForm.complement && !dataForm.local) ||
@@ -258,7 +261,7 @@ export default function Form({
 									`}
 									id="reference-point"
 									name="referencePoint"
-									placeholder="Ex.: Na rua do supermercado Bom Ver Você"
+									placeholder={"Ex.: Na rua do supermercado \"Bom Ver Você\""}
 									onChange={handleValue}
 									disabled={dataForm.local}
 								/>
