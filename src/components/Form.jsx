@@ -76,6 +76,17 @@ export default function Form({
 	const handleSubmit = event => {
 		event.preventDefault()
 
+		let data = dataForm
+
+		if (dataForm.local === true) {
+			data = {
+				name: dataForm.name,
+				local: dataForm.local,
+				formOfPayment: dataForm.formOfPayment,
+				order: dataForm.order
+			}
+		}
+
 		if (
 			(!dataForm.address && !dataForm.local) ||
 			(
@@ -93,7 +104,7 @@ export default function Form({
 			setTimeout(() => setError(false), 7000)
 		}
 		else {
-			console.log(dataForm)
+			console.log(data)
 		}
 	}
 
