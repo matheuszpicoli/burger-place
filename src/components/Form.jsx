@@ -3,6 +3,7 @@ import React, { useState, useLayoutEffect } from "react"
 
 //- React Icons
 import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
+import { LuAsterisk as Required } from "react-icons/lu"
 
 export default function Form({
 	cart
@@ -19,6 +20,8 @@ export default function Form({
 		formOfPayment: "",
 		order: []
 	})
+
+	const [error, setError] = useState(false)
 
 	useLayoutEffect(() => {
 		const orders = cart.map(item => {
@@ -72,11 +75,32 @@ export default function Form({
 
 	const handleSubmit = event => {
 		event.preventDefault()
-		console.log(dataForm)
+
+		if (
+			(!dataForm.address && !dataForm.local) ||
+			(!dataForm.zipCode && !dataForm.local) ||
+			(!dataForm.neighborhood && !dataForm.local) ||
+			(!dataForm.number && !dataForm.local) ||
+			(!dataForm.complement && !dataForm.local) ||
+			!dataForm.name ||
+			!dataForm.formOfPayment
+		) {
+			setError(true)
+
+			setTimeout(() => setError(false), 5000)
+		}
+		else {
+			console.log(dataForm)
+		}
 	}
 
 	return (
 		<form onSubmit={handleSubmit}>
+			{error && (
+				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
+					Há campos obrigatórios que não foram preenchidos.
+				</div>
+			)}
 			<div className="p-3 m-3 bg-white border-y-2 border-x-2 rounded-l rounded-r animate-fade-in">
 				<section className="flex">
 
@@ -86,6 +110,7 @@ export default function Form({
 							className="font-medium"
 						>
 							Procuramos por quem?
+							<Required className="inline text-red-500 w-4 h-4 align-top" />
 						</label>
 						<input
 							type="text"
@@ -109,6 +134,7 @@ export default function Form({
 							className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 						>
 							Endereço para entrega
+							<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
 						</label>
 
 						<div className="flex items-center">
@@ -144,6 +170,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									CEP
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -164,6 +191,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Bairro
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -182,6 +210,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Número
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -220,6 +249,7 @@ export default function Form({
 
 								<p className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} cursor-default font-medium`}>
 									Complemento
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
 								</p>
 
 								<div className="flex flex-row">
@@ -267,6 +297,7 @@ export default function Form({
 
 						<p className="font-medium">
 							Forma de pagamento
+							<Required className="inline text-red-500 w-4 h-4 align-top" />
 						</p>
 
 						<div className="flex flex-row">
