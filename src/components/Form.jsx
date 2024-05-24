@@ -78,7 +78,7 @@ export default function Form({
 
 		if (
 			(!dataForm.address && !dataForm.local) ||
-			(!dataForm.zipCode && !dataForm.local) ||
+			((!dataForm.zipCode && !dataForm.local) || dataForm.zipCode.length < 9) ||
 			(!dataForm.neighborhood && !dataForm.local) ||
 			(!dataForm.number && !dataForm.local) ||
 			(!dataForm.complement && !dataForm.local) ||
@@ -87,7 +87,7 @@ export default function Form({
 		) {
 			setError(true)
 
-			setTimeout(() => setError(false), 5000)
+			setTimeout(() => setError(false), 7000)
 		}
 		else {
 			console.log(dataForm)
@@ -98,7 +98,7 @@ export default function Form({
 		<form onSubmit={handleSubmit}>
 			{error && (
 				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
-					Há campos obrigatórios que não foram preenchidos.
+					Há campos obrigatórios que não foram preenchidos ou foram preenchidos de forma incorreta.
 				</div>
 			)}
 			<div className="p-3 m-3 bg-white border-y-2 border-x-2 rounded-l rounded-r animate-fade-in">
@@ -114,10 +114,10 @@ export default function Form({
 						</label>
 						<input
 							type="text"
-							className="mt-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-full"
+							className={`${dataForm.name.length === 0 ? "border-2 border-red-400" : "border-2 border-green-400"} mt-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-full`}
 							id="name"
 							name="name"
-							placeholder="Nome"
+							placeholder="Seu nome ou nome de quem vai receber"
 							onChange={handleValue}
 						/>
 					</div>
@@ -140,10 +140,14 @@ export default function Form({
 						<div className="flex items-center">
 							<input
 								type="text"
-								className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
+								className={`
+									${dataForm.address.length === 0 && !dataForm.local ? "border-2 border-red-400" : "border-2 border-green-400"}
+									${dataForm.local ? "border-none" : ""}
+									mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent
+								`}
 								id="address"
 								name="address"
-								placeholder="Endereço"
+								placeholder="Av. Jacaré do Rio Claro"
 								onChange={handleValue}
 								disabled={dataForm.local}
 							/>
@@ -174,10 +178,14 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
+									className={`
+										${dataForm.zipCode.length < 9 && !dataForm.local ? "border-2 border-red-400" : "border-2 border-green-400"}
+										${dataForm.local ? "border-none" : ""}
+										mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent
+									`}
 									id="zipCode"
 									name="zipCode"
-									placeholder="CEP"
+									placeholder="CEP da rua"
 									value={dataForm.zipCode}
 									onChange={handleValue}
 									maxLength={9}
@@ -195,10 +203,14 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
+									className={`
+										${dataForm.neighborhood.length === 0 && !dataForm.local ? "border-2 border-red-400" : "border-2 border-green-400"}
+										${dataForm.local ? "border-none" : ""}
+										mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent
+									`}
 									id="neighborhood"
 									name="neighborhood"
-									placeholder="Bairro"
+									placeholder="Bairro da sua residência"
 									onChange={handleValue}
 									disabled={dataForm.local}
 								/>
@@ -214,11 +226,15 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
+									className={`
+										${dataForm.number.length === 0 && !dataForm.local ? "border-2 border-red-400" : "border-2 border-green-400"}
+										${dataForm.local ? "border-none" : ""}
+										mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28 disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent
+									`}
 									id="number"
 									name="number"
 									value={dataForm.number}
-									placeholder="Número"
+									placeholder="N° Casa/Apart."
 									onChange={handleValue}
 									disabled={dataForm.local}
 								/>
@@ -236,7 +252,10 @@ export default function Form({
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
+									className={`
+										${dataForm.local ? "border-none" : "border-2 border-green-400"}
+										mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent
+									`}
 									id="reference-point"
 									name="referencePoint"
 									placeholder="Ex.: Na rua do supermercado Bom Ver Você"
