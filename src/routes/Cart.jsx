@@ -139,7 +139,7 @@ export default function Cart() {
 								</span>
 							</h1>
 
-							<Form />
+							<Form cart={cart} />
 						</div>
 					</React.Fragment>
 				)}

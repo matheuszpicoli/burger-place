@@ -1,10 +1,12 @@
 //- React
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 
 //- React Icons
 import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
 
-export default function Form() {
+export default function Form({
+	cart
+}) {
 	const [dataForm, setDataForm] = useState({
 		name: "",
 		address: "",
@@ -14,8 +16,22 @@ export default function Form() {
 		number: "",
 		referencePoint: "",
 		complement: "",
-		formOfPayment: ""
+		formOfPayment: "",
+		order: []
 	})
+
+	useLayoutEffect(() => {
+		const orders = cart.map(item => ({
+			description: item.description,
+			extras: item.extras.map(extra => extra.name),
+			observation: item.observation,
+			price: item.price
+		}))
+
+		setDataForm(prevForm => ({
+			...prevForm, order: orders
+		}))
+	}, [cart])
 
 	const handleValue = event => {
 		const {
