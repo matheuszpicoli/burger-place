@@ -110,7 +110,7 @@ export default function Form({
 							className="font-medium"
 						>
 							Procuramos por quem?
-							<Required className="inline text-red-500 w-4 h-4 align-top" />
+							<Required className="inline text-red-500 w-3 h-3 align-top" />
 						</label>
 						<input
 							type="text"
@@ -134,7 +134,7 @@ export default function Form({
 							className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 						>
 							Endereço para entrega
-							<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
+							<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 						</label>
 
 						<div className="flex items-center">
@@ -170,7 +170,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									CEP
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -191,7 +191,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Bairro
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -210,7 +210,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Número
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -239,7 +239,7 @@ export default function Form({
 									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none disabled:text-transparent"
 									id="reference-point"
 									name="referencePoint"
-									placeholder="Ponto de Referência"
+									placeholder="Ex.: Na rua do supermercado Bom Ver Você"
 									onChange={handleValue}
 									disabled={dataForm.local}
 								/>
@@ -249,7 +249,7 @@ export default function Form({
 
 								<p className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} cursor-default font-medium`}>
 									Complemento
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-4 h-4 align-top`} />
+									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</p>
 
 								<div className="flex flex-row">
@@ -297,7 +297,7 @@ export default function Form({
 
 						<p className="font-medium">
 							Forma de pagamento
-							<Required className="inline text-red-500 w-4 h-4 align-top" />
+							<Required className="inline text-red-500 w-3 h-3 align-top" />
 						</p>
 
 						<div className="flex flex-row">
