@@ -9,19 +9,43 @@ export default function Form() {
 		name: "",
 		address: "",
 		local: false,
-		cep: 0,
+		zipCode: "",
 		neighborhood: "",
-		number: 0,
+		number: "",
 		referencePoint: "",
 		complement: "",
 		formOfPayment: ""
 	})
 
 	const handleValue = event => {
-		const value = event.target.type === "checkbox" ? event.target.checked : event.target.value
+		const {
+			name,
+			type,
+			value
+		} = event.target
+
+		const onlyNumber = new RegExp(/\D/gi)
+
+		const mask = {
+			zipCode: new RegExp(/^([0-9]{5})([0-9])/),
+			number: new RegExp(/\B(?=([0-9]{3})+(?![0-9]))/g)
+		}
+
+		let finalValue = type === "checkbox" ? event.target.checked : value
+
+		switch (name) {
+			case "zipCode":
+				finalValue = finalValue.replace(onlyNumber, "")
+				finalValue = finalValue.replace(mask.zipCode, "$1-$2")
+				break
+			case "number":
+				finalValue = finalValue.replace(onlyNumber, "")
+				finalValue = finalValue.replace(mask.number, ".")
+				break
+		}
 
 		setDataForm(data => ({
-			...data, [event.target.name]: value
+			...data, [name]: finalValue
 		}))
 	}
 
@@ -61,7 +85,7 @@ export default function Form() {
 					<div className="items-center flex-grow">
 						<label
 							htmlFor="address"
-							className="font-medium"
+							className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 						>
 							Endereço para entrega
 						</label>
@@ -69,11 +93,12 @@ export default function Form() {
 						<div className="flex items-center">
 							<input
 								type="text"
-								className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow"
+								className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow disabled:bg-slate-400 disabled:pointer-events-none"
 								id="address"
 								name="address"
 								placeholder="Endereço"
 								onChange={handleValue}
+								disabled={dataForm.local}
 							/>
 							<input
 								type="checkbox"
@@ -94,52 +119,58 @@ export default function Form() {
 
 							<div className="flex flex-col mr-2">
 								<label
-									htmlFor="cep"
-									className="font-medium"
+									htmlFor="zipCode"
+									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									CEP
 								</label>
 								<input
-									type="number"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24"
-									id="cep"
-									name="cep"
+									type="text"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-24 disabled:bg-slate-400 disabled:pointer-events-none"
+									id="zipCode"
+									name="zipCode"
 									placeholder="CEP"
+									value={dataForm.zipCode}
 									onChange={handleValue}
+									maxLength={9}
+									disabled={dataForm.local}
 								/>
 							</div>
 
 							<div className="flex flex-col flex-grow ml-2">
 								<label
 									htmlFor="neighborhood"
-									className="font-medium"
+									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Bairro
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none"
 									id="neighborhood"
 									name="neighborhood"
 									placeholder="Bairro"
 									onChange={handleValue}
+									disabled={dataForm.local}
 								/>
 							</div>
 
 							<div className="flex flex-col ml-2">
 								<label
 									htmlFor="number"
-									className="font-medium"
+									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Número
 								</label>
 								<input
-									type="number"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28"
+									type="text"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 flex-grow w-28 disabled:bg-slate-400 disabled:pointer-events-none"
 									id="number"
 									name="number"
+									value={dataForm.number}
 									placeholder="Número"
 									onChange={handleValue}
+									disabled={dataForm.local}
 								/>
 							</div>
 
@@ -149,53 +180,56 @@ export default function Form() {
 							<div className="flex flex-col flex-grow mr-2">
 								<label
 									htmlFor="reference-point"
-									className="font-medium"
+									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Ponto de Referência
 								</label>
 								<input
 									type="text"
-									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full"
+									className="mt-2 mb-2 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300 w-full disabled:bg-slate-400 disabled:pointer-events-none"
 									id="reference-point"
 									name="referencePoint"
 									placeholder="Ponto de Referência"
 									onChange={handleValue}
+									disabled={dataForm.local}
 								/>
 							</div>
 
 							<div className="flex flex-col mr-2">
 
-								<p className="font-medium">
+								<p className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} cursor-default font-medium`}>
 									Complemento
 								</p>
 
 								<div className="flex flex-row">
 									<input
 										type="radio"
-										className="w-4 accent-stone-400"
+										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none"
 										id="house"
 										value="house"
 										name="complement"
 										onChange={handleValue}
+										disabled={dataForm.local}
 									/>
 									<label
 										htmlFor="house"
-										className="m-2 cursor-pointer text-sm font-medium"
+										className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} m-2 cursor-pointer text-sm font-medium`}
 									>
 										Casa
 									</label>
 
 									<input
 										type="radio"
-										className="w-4 accent-stone-400"
+										className="w-4 accent-stone-400 cursor-pointer disabled:bg-slate-400 disabled:pointer-events-none"
 										id="apartment"
 										value="apartment"
 										name="complement"
 										onChange={handleValue}
+										disabled={dataForm.local}
 									/>
 									<label
 										htmlFor="apartment"
-										className="m-2 cursor-pointer text-sm font-medium"
+										className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} m-2 cursor-pointer text-sm font-medium`}
 									>
 										Apartamento
 									</label>
@@ -217,7 +251,7 @@ export default function Form() {
 						<div className="flex flex-row">
 							<input
 								type="radio"
-								className="w-4 accent-stone-400"
+								className="w-4 accent-stone-400 cursor-pointer"
 								id="money"
 								value="money"
 								name="formOfPayment"
@@ -232,7 +266,7 @@ export default function Form() {
 
 							<input
 								type="radio"
-								className="w-4 accent-stone-400"
+								className="w-4 accent-stone-400 cursor-pointer"
 								id="card"
 								value="card"
 								name="formOfPayment"
@@ -247,7 +281,7 @@ export default function Form() {
 
 							<input
 								type="radio"
-								className="w-4 accent-stone-400"
+								className="w-4 accent-stone-400 cursor-pointer"
 								id="pix"
 								value="pix"
 								name="formOfPayment"
