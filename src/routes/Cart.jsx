@@ -28,7 +28,7 @@ export default function Cart() {
 	}, [cart])
 
 	return (
-		!constant.isOpen ? (
+		constant.isOpen ? (
 			<React.Fragment>
 				<header className="sticky top-0 h-14 bg-stone-900 text-white flex justify-between items-center z-10">
 					<Link to={"/"}>
