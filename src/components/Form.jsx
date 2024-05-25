@@ -23,6 +23,18 @@ export default function Form({
 
 	const [error, setError] = useState(false)
 
+	const requiredFieldsNotFfilledIin = (
+		!dataForm.name ||
+		!dataForm.formOfPayment ||
+		!dataForm.local && (
+			!dataForm.address ||
+			!dataForm.zipCode || dataForm.zipCode.length < 9 ||
+			!dataForm.neighborhood ||
+			!dataForm.number ||
+			!dataForm.complement
+		)
+	)
+
 	useLayoutEffect(() => {
 		const orders = cart.map(item => {
 			let order = {
@@ -87,18 +99,7 @@ export default function Form({
 			}
 		}
 
-		if (
-			(!dataForm.address && !dataForm.local) ||
-			(
-				(!dataForm.zipCode && !dataForm.local) ||
-				(dataForm.zipCode.length < 9 && !dataForm.local)
-			) ||
-			(!dataForm.neighborhood && !dataForm.local) ||
-			(!dataForm.number && !dataForm.local) ||
-			(!dataForm.complement && !dataForm.local) ||
-			!dataForm.name ||
-			!dataForm.formOfPayment
-		) {
+		if (requiredFieldsNotFfilledIin) {
 			setError(true)
 
 			setTimeout(() => setError(false), 7000)
