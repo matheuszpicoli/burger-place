@@ -104,7 +104,17 @@ export default function Form({
 			setTimeout(() => setError(false), 7000)
 		}
 		else {
-			console.log(data)
+			const serverUrl = "http://localhost:3000"
+
+			data.submittedAt = new Date().toLocaleString("pt-br")
+
+			fetch(`${serverUrl}/orders`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			}).then(response => response.json())
 		}
 	}
 
