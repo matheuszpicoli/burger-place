@@ -3,6 +3,7 @@ import React, { useState, useLayoutEffect } from "react"
 
 //- React Icons
 import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
+import { IoAlertCircleOutline as Alert } from "react-icons/io5"
 import { LuAsterisk as Required } from "react-icons/lu"
 
 export default function Form({
@@ -21,6 +22,7 @@ export default function Form({
 		order: []
 	})
 
+	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
 
 	const requiredFieldsNotFfilledIin = (
@@ -115,7 +117,9 @@ export default function Form({
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(data)
-			}).then(response => response.json())
+			}).then(response => response.json()).then(() => setSuccess(true))
+
+			setTimeout(() => setSuccess(false), 7000)
 		}
 	}
 
@@ -123,7 +127,10 @@ export default function Form({
 		<form onSubmit={handleSubmit}>
 			{error && (
 				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
-					Há campos obrigatórios que não foram preenchidos ou foram preenchidos de forma incorreta.
+					<Alert className="inline w-5 h-5 mr-1" />
+					<span className="align-middle">
+						Há campos obrigatórios que não foram preenchidos.
+					</span>
 				</div>
 			)}
 			<div className="p-3 m-3 bg-white border-y-2 border-x-2 rounded-l rounded-r animate-fade-in">
@@ -402,6 +409,14 @@ export default function Form({
 								Confirmar Pedido
 							</span>
 						</button>
+						{success && (
+							<div className="fixed top-16 right-6 bg-green-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
+								<Confirm className="inline w-5 h-5 mr-1" />
+								<span className="align-middle">
+									Pedido realizado!
+								</span>
+							</div>
+						)}
 					</div>
 				</section>
 			</div>
