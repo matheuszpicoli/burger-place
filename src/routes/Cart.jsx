@@ -75,7 +75,7 @@ export default function Cart() {
 							</h1>
 
 							{cart.map((item, index) => {
-								const totalExtras = item.extras.reduce((extraSum, extra) => extraSum + extra.price, 0)
+								const totalExtras = item.extras.reduce((acc, extra) => acc + extra.price, 0)
 
 								return (
 									<div
