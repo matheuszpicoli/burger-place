@@ -24,6 +24,8 @@ export default function Form({
 
 	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
+	const [buttonIsDisabled, setButtonIsDisabled] = useState(false)
+	const [buttonText, setButtonText] = useState("Confirmar pedido")
 
 	const requiredFieldsNotFfilledIin = (
 		!dataForm.name ||
@@ -95,7 +97,18 @@ export default function Form({
 		if (dataForm.local === true) {
 			data = {
 				name: dataForm.name,
-				local: dataForm.local,
+				formOfPayment: dataForm.formOfPayment,
+				order: dataForm.order
+			}
+		} else {
+			data = {
+				name: dataForm.name,
+				address: dataForm.address,
+				zipCode: dataForm.zipCode,
+				neighborhood: dataForm.neighborhood,
+				number: dataForm.number,
+				referencePoint: dataForm.referencePoint,
+				complement: dataForm.complement,
 				formOfPayment: dataForm.formOfPayment,
 				order: dataForm.order
 			}
@@ -107,7 +120,7 @@ export default function Form({
 			setTimeout(() => setError(false), 7000)
 		}
 		else {
-			const serverUrl = "http://localhost:3000"
+			const serverUrl = "http://localhost:3001"
 
 			data.submittedAt = new Date().toLocaleString("pt-br")
 
@@ -117,7 +130,11 @@ export default function Form({
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(data)
-			}).then(response => response.json()).then(() => setSuccess(true))
+			}).then(response => response.json()).then(() => {
+				setSuccess(true)
+				setButtonIsDisabled(true)
+				setButtonText("Pedido realizado!")
+			})
 
 			setTimeout(() => setSuccess(false), 7000)
 		}
@@ -402,11 +419,12 @@ export default function Form({
 					<div className="flex flex-row justify-end w-full items-end">
 						<button
 							type="submit"
-							className="text-green-600 opacity-60 hover:opacity-100 active:opacity-60 transition duration-300"
+							className="text-green-600 opacity-60 hover:opacity-100 active:opacity-60 transition duration-300 disabled:pointer-events-none"
+							disabled={buttonIsDisabled}
 						>
 							<Confirm className="inline w-5 h-5" />
 							<span className="text-sm ml-1 align-middle italic">
-								Confirmar Pedido
+								{buttonText}
 							</span>
 						</button>
 						{success && (
