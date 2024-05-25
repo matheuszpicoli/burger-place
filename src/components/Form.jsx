@@ -2,12 +2,11 @@
 import React, { useState, useLayoutEffect } from "react"
 
 //- React Icons
-import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
-import { IoAlertCircleOutline as Alert } from "react-icons/io5"
-import { LuAsterisk as Required } from "react-icons/lu"
+import * as Icon from "../exported/reactIcons"
 
 export default function Form({
-	cart
+	cart,
+	setCart
 }) {
 	const [dataForm, setDataForm] = useState({
 		name: "",
@@ -38,6 +37,8 @@ export default function Form({
 			!dataForm.complement
 		)
 	)
+
+	const clearCart = () => setCart([])
 
 	useLayoutEffect(() => {
 		const orders = cart.map(item => {
@@ -134,6 +135,7 @@ export default function Form({
 				setSuccess(true)
 				setButtonIsDisabled(true)
 				setButtonText("Pedido realizado!")
+				setTimeout(() => clearCart(), 7500)
 			})
 
 			setTimeout(() => setSuccess(false), 7000)
@@ -144,7 +146,7 @@ export default function Form({
 		<form onSubmit={handleSubmit}>
 			{error && (
 				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
-					<Alert className="inline w-5 h-5 mr-1" />
+					<Icon.Alert className="inline w-5 h-5 mr-1" />
 					<span className="align-middle">
 						Há campos obrigatórios que não foram preenchidos.
 					</span>
@@ -159,7 +161,7 @@ export default function Form({
 							className="font-medium"
 						>
 							Procuramos por quem?
-							<Required className="inline text-red-500 w-3 h-3 align-top" />
+							<Icon.Required className="inline text-red-500 w-3 h-3 align-top" />
 						</label>
 						<input
 							type="text"
@@ -183,7 +185,7 @@ export default function Form({
 							className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 						>
 							Endereço para entrega
-							<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
+							<Icon.Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 						</label>
 
 						<div className="flex items-center">
@@ -223,7 +225,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									CEP
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
+									<Icon.Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -248,7 +250,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Bairro
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
+									<Icon.Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -271,7 +273,7 @@ export default function Form({
 									className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} font-medium`}
 								>
 									Número
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
+									<Icon.Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</label>
 								<input
 									type="text"
@@ -317,7 +319,7 @@ export default function Form({
 
 								<p className={`${dataForm.local ? "text-transparent pointer-events-none" : ""} cursor-default font-medium`}>
 									Complemento
-									<Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
+									<Icon.Required className={`${dataForm.local ? "text-transparent" : ""} inline text-red-500 w-3 h-3 align-top`} />
 								</p>
 
 								<div className="flex flex-row">
@@ -365,7 +367,7 @@ export default function Form({
 
 						<p className="font-medium">
 							Forma de pagamento
-							<Required className="inline text-red-500 w-3 h-3 align-top" />
+							<Icon.Required className="inline text-red-500 w-3 h-3 align-top" />
 						</p>
 
 						<div className="flex flex-row">
@@ -422,14 +424,14 @@ export default function Form({
 							className="text-green-600 opacity-60 hover:opacity-100 active:opacity-60 transition duration-300 disabled:pointer-events-none"
 							disabled={buttonIsDisabled}
 						>
-							<Confirm className="inline w-5 h-5" />
+							<Icon.Confirm className="inline w-5 h-5" />
 							<span className="text-sm ml-1 align-middle italic">
 								{buttonText}
 							</span>
 						</button>
 						{success && (
 							<div className="fixed top-16 right-6 bg-green-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
-								<Confirm className="inline w-5 h-5 mr-1" />
+								<Icon.Confirm className="inline w-5 h-5 mr-1" />
 								<span className="align-middle">
 									Pedido realizado!
 								</span>

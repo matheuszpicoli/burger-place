@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 
 //- React Icons
-import { IoIosArrowUp as Arrow } from "react-icons/io"
+import * as Icon from "../exported/reactIcons"
 
 //- Components
 import * as Modal from "./Modal"
@@ -89,7 +89,7 @@ export function MenuOrder({
 				>
 					{category}
 					<span className={`transform ${detailsState ? "rotate-0" : "rotate-180"}`}>
-						<Arrow className="w-6 h-6" />
+						<Icon.Arrow className="w-6 h-6" />
 					</span>
 				</summary>
 

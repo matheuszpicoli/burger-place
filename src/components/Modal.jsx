@@ -2,15 +2,10 @@
 import React, { useState, useLayoutEffect } from "react"
 
 //- React Icon
-import { IoIosCloseCircleOutline as Close } from "react-icons/io"
-import { IoIosCheckmarkCircleOutline as Confirm } from "react-icons/io"
-import { GoPencil as Pencil } from "react-icons/go"
+import * as Icon from "../exported/reactIcons"
 
-import { PiMotorcycleFill as Motorcycle } from "react-icons/pi"
-import { PiGarage as Local } from "react-icons/pi"
-import { MdOutlineAttachMoney as Money } from "react-icons/md"
-import { FaCreditCard as Card } from "react-icons/fa"
-import { FaPix as Pix } from "react-icons/fa6"
+//- Constants
+import * as constant from "../exported/constants"
 
 export function Order({
 	description,
@@ -73,23 +68,6 @@ export function Order({
 		toggleModalState()
 	}
 
-	const maskForPrice = (price = 0) => {
-		const mask = parseFloat(price).toLocaleString("pt-BR", {
-			minimumFractionDigits: 2,
-			maximumFractionDigits: 2
-		})
-
-		return `R$ ${mask}`
-	}
-
-	const date = new Date()
-	const hours = date.getHours()
-
-	const openingTime = 18
-	const closingTime = 23
-
-	const isOpen = hours >= openingTime && hours < closingTime
-
 	return (
 		modalOpen && (
 			<React.Fragment>
@@ -137,7 +115,7 @@ export function Order({
 										</div>
 										{extraItem.price > 0 && (
 											<div className="italic text-sm font-medium text-green-400 hover:text-green-600 transition duration-300">
-												{maskForPrice(extraItem.price)}
+												{constant.maskForPrice(extraItem.price)}
 											</div>
 										)}
 										{extraItem.price === 0 && (
@@ -147,7 +125,7 @@ export function Order({
 										)}
 										{extraItem.price < 0 && (
 											<div className="italic text-sm font-medium text-red-400 hover:text-red-600 transition duration-300">
-												{maskForPrice(extraItem.price)}
+												{constant.maskForPrice(extraItem.price)}
 											</div>
 										)}
 									</div>
@@ -156,7 +134,7 @@ export function Order({
 							))}
 
 						<div className="flex items-center mt-5">
-							<Pencil className="text-slate-700 w-6 h-6" />
+							<Icon.Pencil className="text-slate-700 w-6 h-6" />
 							<input
 								type="text"
 								placeholder="Alguma observação?"
@@ -169,7 +147,7 @@ export function Order({
 						<div className="flex justify-between mt-5">
 
 							<span className="text-lg font-medium">
-								{maskForPrice(totalPrice)}
+								{constant.maskForPrice(totalPrice)}
 							</span>
 
 							<div>
@@ -177,12 +155,12 @@ export function Order({
 									onClick={toggleModalState}
 									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
 								>
-									<Close className="inline w-6 h-6" />
+									<Icon.Close className="inline w-6 h-6" />
 									<span className="align-middle italic">
 										Cancelar
 									</span>
 								</button>
-								{isOpen && (
+								{constant.isOpen && (
 									<button
 										onClick={() => {
 											addToCart()
@@ -190,7 +168,7 @@ export function Order({
 										}}
 										className="ml-6 mr-3 text-green-600 opacity-60 hover:opacity-100 transition duration-300"
 									>
-										<Confirm className="inline w-6 h-6" />
+										<Icon.Confirm className="inline w-6 h-6" />
 										<span className="align-middle italic">
 											Adicionar ao carrinho
 										</span>
@@ -227,15 +205,6 @@ export function OfficeHour({
 		return () => window.removeEventListener("keydown", esc)
 	}, [])
 
-	const openingTime = 18
-	const closingTime = 23
-
-	const maskForCNPJ = cnpj => {
-		const mask = new RegExp(/^([0-9]{2})([0-9]{3})([0-9]{3})([0-9]{4})([0-9]{2})$/)
-
-		return cnpj.toString().replace(mask, "$1.$2.$3/$4-$5")
-	}
-
 	return (
 		modalOpen && (
 			<React.Fragment>
@@ -248,7 +217,7 @@ export function OfficeHour({
 							<h1 className="font-bold text-center uppercase mb-6">
 								Horário de funcionamento
 							</h1>
-							<span><b>Todos os dias</b> das {openingTime}h às {closingTime}h</span>
+							<span><b>Todos os dias</b> das {constant.openingTime}h às {constant.closingTime}h</span>
 							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
 						</section>
 
@@ -258,10 +227,10 @@ export function OfficeHour({
 							</h2>
 
 							<div>
-								<Motorcycle className="inline mr-1 w-5 h-5" />
+								<Icon.Motorcycle className="inline mr-1 w-5 h-5" />
 								<span className="mr-3 align-middle">Delivery</span>
 
-								<Local className="inline mr-1 w-5 h-5" />
+								<Icon.Local className="inline mr-1 w-5 h-5" />
 								<span className="mr-3 align-middle">No local</span>
 							</div>
 							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
@@ -273,13 +242,13 @@ export function OfficeHour({
 							</h2>
 
 							<div>
-								<Money className="inline mr-1 w-5 h-5" />
+								<Icon.Money className="inline mr-1 w-5 h-5" />
 								<span className="mr-3 align-middle">Dinheiro</span>
 
-								<Card className="inline mr-1 w-5 h-5" />
+								<Icon.Card className="inline mr-1 w-5 h-5" />
 								<span className="mr-3 align-middle">Cartão</span>
 
-								<Pix className="inline mr-1 w-5 h-5" />
+								<Icon.Pix className="inline mr-1 w-5 h-5" />
 								<span className="mr-3 align-middle">Pix</span>
 							</div>
 
@@ -295,7 +264,7 @@ export function OfficeHour({
 							</h2>
 
 							<p><b>Razão Social:</b> MP Burger</p>
-							<p><b>CNPJ:</b> <i>{maskForCNPJ(67492404000110)}</i></p>
+							<p><b>CNPJ:</b> <i>{constant.maskForCNPJ(67492404000110)}</i></p>
 							<div className="p-px mb-4 mt-4 bg-slate-300"></div>
 						</section>
 
@@ -304,7 +273,7 @@ export function OfficeHour({
 								onClick={toggleModalState}
 								className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
 							>
-								<Close className="w-6 h-6 inline" />
+								<Icon.Close className="w-6 h-6 inline" />
 								<span className="align-middle italic">
 									Fechar
 								</span>
