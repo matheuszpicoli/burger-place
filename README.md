@@ -13,7 +13,7 @@ I have no idea about the price of food, all the values ​​were generated with
 <hr />
 
 ### Categories
-We have several food categories, including: "**Starters**"**,** "**Standards**"**,** "**Chicken**"**,** "**Artisanal* *"**,** "**Portions**"**,** "**Drinks**" and "**Desserts**"**.**
+We have several food categories, including: "**Starters**", "**Standards**", "**Chicken**", "**Handmate**", "**Portions**", "**Drinks**" and "**Desserts**"**.**
 
 #### Appetizer
 Small portions, as if it were really a restaurant starter. Think of them as an "option" to include in the meal.
@@ -21,10 +21,10 @@ Small portions, as if it were really a restaurant starter. Think of them as an "
 #### Standards
 Standard snack that everyone knows, the famous X Bacon, X Salad, X Ham, among others...
 
-####Chicken
+#### Chicken
 The same as the standard snack, however, instead of beef it's chicken, these snacks are called Galis something, be it Galis Bacon, Galis Tudo, whatever.
 
-#### Crafts
+#### Handmate
 In these options, artisanal (or gourmet) burgers are demonstrated, which consequently have the highest price due to their special preparation method and the high selection of their ingredients.
 
 #### Portions
