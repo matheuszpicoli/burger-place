@@ -15,7 +15,7 @@ I have no idea about the price of food, all the values ​​were generated with
 ### Categories
 We have several food categories, including: "**Starters**", "**Standards**", "**Chicken**", "**Handmate**", "**Portions**", "**Drinks**" and "**Desserts**"**.**
 
-#### Appetizer
+#### Starters
 Small portions, as if it were really a restaurant starter. Think of them as an "option" to include in the meal.
 
 #### Standards
