@@ -31,7 +31,7 @@ In these options, artisanal (or gourmet) burgers are demonstrated, which consequ
 Unlike the starters, this section features some dishes that can be served as a meal, as most of them are usually accompanied by rice, beans and salad, among other options.
 
 #### Drinks
-Self-explanatory, here it shows the drinks available for consumption at the burger restaurant. A warning was placed when selecting an alcoholic drink, alerting the user that the establishment does not sell this type of drink to anyone under 18 years of age.
+Self-explanatory, here it shows the drinks available for consumption at the burger restaurant. A warning was placed when selecting an alcoholic drink, alerting the user that the establishment does not sell this type of drink to anyone under 18 years old.
 
 #### Desserts
 Some dessert options. Only a pudding and a passion fruit mousse were added, as the AI ​​couldn't make a petit-gateau at all.
