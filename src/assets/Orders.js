@@ -1100,15 +1100,15 @@ const Orders = {
 			id: 27,
 			description: "Suco",
 			image: Image.Juice,
-			text: "100% natural, fazemos na hora! Temos jarras de 300ml, 500ml e também no copo. Temos suco de abacaxi com hortelã, laranja, caju, graviola e acerola.",
+			text: "100% natural, fazemos na hora! Temos jarras de 600ml, 1L e também no copo. Temos suco de abacaxi com hortelã, laranja, caju, graviola e acerola.",
 			price: 11,
 			extras: [
 				{
-					name: "Abacaxi com hortelã (300ml)",
+					name: "Abacaxi com hortelã (600ml)",
 					price: 1
 				},
 				{
-					name: "Abacaxi com hortelã (500ml)",
+					name: "Abacaxi com hortelã (1L)",
 					price: 2
 				},
 				{
@@ -1116,11 +1116,11 @@ const Orders = {
 					price: 0
 				},
 				{
-					name: "Laranja (300ml)",
+					name: "Laranja (600ml)",
 					price: 1
 				},
 				{
-					name: "Laranja (500ml)",
+					name: "Laranja (1L)",
 					price: 2
 				},
 				{
@@ -1128,11 +1128,11 @@ const Orders = {
 					price: 0
 				},
 				{
-					name: "Caju (300ml)",
+					name: "Caju (600ml)",
 					price: 1
 				},
 				{
-					name: "Caju (500ml)",
+					name: "Caju (1L)",
 					price: 2
 				},
 				{
@@ -1140,11 +1140,11 @@ const Orders = {
 					price: 0
 				},
 				{
-					name: "Graviola (300ml)",
+					name: "Graviola (600ml)",
 					price: 1
 				},
 				{
-					name: "Graviola (500ml)",
+					name: "Graviola (1L)",
 					price: 2
 				},
 				{
@@ -1152,11 +1152,11 @@ const Orders = {
 					price: 0
 				},
 				{
-					name: "Acerola (300ml)",
+					name: "Acerola (600ml)",
 					price: 1
 				},
 				{
-					name: "Acerola (500ml)",
+					name: "Acerola (1L)",
 					price: 2
 				},
 				{
