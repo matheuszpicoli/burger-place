@@ -17,7 +17,7 @@ export function Search({
 
 	return (
 		<div>
-			<Icon.Find className="h-7 w-7 p-1 rounded-l rounded-r inline mr-2 bg-slate-200 text-black" />
+			<Icon.Find className="h-7 w-7 p-1 rounded-l rounded-r inline mr-2 bg-slate-200 text-black sm:hidden" />
 			<input
 				className="mr-5 pt-1 pb-1 pl-2 pr-2 rounded-l rounded-r h-7 text-xs text-black bg-slate-200 outline-none align-middle hover:opacity-80 active:opacity-100 transition duration-300"
 				type="search"

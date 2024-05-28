@@ -73,7 +73,7 @@ export function Order({
 			<React.Fragment>
 				<div className="fixed inset-0 backdrop-blur-sm z-20"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal md:w-3/4 sm:w-11/12 sm:h-5/6"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<h1 className="font-bold text-center uppercase mb-6">{description}</h1>
@@ -150,7 +150,7 @@ export function Order({
 								{constant.maskForPrice(totalPrice)}
 							</span>
 
-							<div>
+							<div className="flex items-end">
 								<button
 									onClick={toggleModalState}
 									className="text-red-600 opacity-60 hover:opacity-100 transition duration-300"
@@ -210,7 +210,7 @@ export function OfficeHour({
 			<React.Fragment>
 				<div className="fixed inset-0 backdrop-blur-sm z-20"></div>
 				<dialog open
-					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal"
+					className="rounded-xl bg-slate-200 border-y-2 border-x-2 border-black outline-none fixed inset-0 flex items-center justify-center h-3/4 w-1/2 z-30 animate-modal sm:w-11/12 sm:h-5/6"
 				>
 					<div className="bg-transparent m-5 p-5 cursor-default overflow-y-auto h-5/6 border-y-2 border-x-2 border-slate-300 rounded-l rounded-r w-full">
 						<section>

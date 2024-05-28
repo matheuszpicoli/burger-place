@@ -31,16 +31,18 @@ export default function Footer({
 
 	return (
 		<div className="fixed bottom-0 w-full backdrop-blur text-white/60 flex justify-around items-center h-8 cursor-default">
-			<div className="flex items-center">
-				<Icon.Location className="w-6 h-6 mr-2" />
-				<i>{location}</i>
+			<div className={`
+				${constant.isOpen && cartItemsCount > 0 ? "sm:hidden" : ""}
+				flex items-center
+			`}>
+				<Icon.Location className="w-6 h-6 mr-2 sm:hidden" />
+				<i className="sm:text-xs">{location}</i>
 			</div>
-
 
 			{constant.isOpen && cartItemsCount > 0 && (
 				<React.Fragment>
 					{showPopover && (
-						<div className="fixed bottom-10 bg-white right-32 text-black p-3 rounded-l rounded-r bg-opacity-60 animate-fade-in">
+						<div className="fixed bottom-10 bg-white right-32 text-black p-3 rounded-l rounded-r bg-opacity-60 animate-fade-in md:hidden sm:hidden">
 							Seus pedidos aparecem aqui
 						</div>
 					)}

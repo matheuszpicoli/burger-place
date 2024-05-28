@@ -145,7 +145,7 @@ export default function Form({
 	return (
 		<form onSubmit={handleSubmit}>
 			{error && (
-				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in">
+				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in sm:right-0 md:right-0">
 					<Icon.Alert className="inline w-5 h-5 mr-1" />
 					<span className="align-middle">
 						Há campos obrigatórios que não foram preenchidos.

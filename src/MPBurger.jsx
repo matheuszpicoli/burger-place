@@ -19,7 +19,7 @@ import Orders from "./assets/Orders"
 
 function MPBurger() {
 	const [foundWord, setFoundWord] = useState("")
-	const address = ["Avenida Tocantins, 567, Vila Jardim Rio Claro, Jataí - GO. 75802-095."]
+	const address = "Avenida Tocantins, 567, Vila Jardim Rio Claro, Jataí - GO."
 
 	return (
 		<BrowserRouter>
@@ -35,8 +35,8 @@ function MPBurger() {
 							<header className="bg-gradient-to-b from-stone-700/90 to-stone-700 text-white h-16 flex flex-row justify-around items-center z-10">
 								<Header.Operation />
 							</header>
-							<main className="bg-stone-700">
-								<nav className="h-10 flex justify-around items-center sticky top-14 backdrop-blur z-10">
+							<main className="bg-stone-700 sm:text-sm">
+								<nav className="h-10 flex justify-around items-center sticky top-14 backdrop-blur z-10 sm:hidden">
 									<Main.MenuList option={"Entradas"} />
 									<Main.MenuList option={"Padrões"} />
 									<Main.MenuList option={"Chicken"} />

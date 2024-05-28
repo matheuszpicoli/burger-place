@@ -102,7 +102,12 @@ export function MenuOrder({
 				<table className={`mx-auto w-10/12 text-gray-400 ${detailsState ? "animate-fade-in" : ""}`}>
 					<tbody>
 						{itemCol1.map((item, index) => (
-							<tr key={index} className="flex">
+							<tr
+								key={index}
+								className={`
+									${index === itemCol1.length - 1 && filteredItems.length % 2 !== 0 ? "md:flex sm:flex" : "flex"}
+									md:flex-col sm:flex-col
+								`}>
 
 								<td
 									onClick={() => toggleModal(item)}
