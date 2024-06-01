@@ -1,67 +1,67 @@
-# MP Burger 🍔
+# MP Burguer 🍔
 
-### Project link running at Vercel: https://mp-burguer-place.vercel.app/
+### Link do projeto rodando na Vercel: https://mp-burguer-place.vercel.app/
 
 <br />
 
-**MP Burger** is a burger restaurant developed using React and a JSON server to store orders when there is one in the cart. No highly professional server was created, the intention was just to store the requests somewhere, without me worrying about creating a schema and storing them within a database.
+**MP Burger** é uma hamburgueria desenvolvida em React e um servidor JSON-Server para armazenar pedidos quando houver um no carrinho. Não foi criado nenhum servidor altamente profissional, a intenção era apenas armazenar as requisições em algum lugar, sem que eu me preocupasse em criar um schema e armazená-las dentro de um banco de dados.
 
-The fictitious burger joint **opens at 6pm Brasília time** and it **closes at 11pm**, outside of this period it is **not** possible to place any orders, as the establishment is closed. In this project, a CNPJ and an address, both random, were generated for the burger restaurant.
+A lanchonete fictícia **abre às 18h horário de Brasília** e **fecha às 23h**, fora desse período **não** é possível fazer nenhum pedido, pois o estabelecimento está fechado. Neste projeto foram gerados um CNPJ e um endereço, ambos aleatórios, para a hamburgueria.
 
-I have no idea about the price of food, all the values ​​were generated with the price and quantity that came from my head, the images of the snacks, dishes, drinks and desserts were generated with artificial intelligence (AI).
-
-<hr />
-
-### Categories
-We have several food categories, including: "**Appetizers**", "**Standards**", "**Chicken**", "**Handmate**", "**Portions**", "**Drinks**" and "**Desserts**"**.**
-
-#### Appetizers
-Small portions, as if it were really a restaurant starter. Think of them as an "option" to include in the meal.
-
-#### Standards
-Standard snack that everyone knows, the famous X Bacon, X Salad, X Ham, among others...
-
-#### Chicken
-The same as the standard snack, however, instead of beef it's chicken, these snacks are called Galis something, be it Galis Bacon, Galis Tudo, whatever.
-
-#### Handmate
-In these options, artisanal (or gourmet) burgers are demonstrated, which consequently have the highest price due to their special preparation method and the high selection of their ingredients.
-
-#### Portions
-Unlike the starters, this section features some dishes that can be served as a meal, as most of them are usually accompanied by rice, beans and salad, among other options.
-
-#### Drinks
-Self-explanatory, here it shows the drinks available for consumption at the burger restaurant. A warning was placed when selecting an alcoholic drink, alerting the user that the establishment does not sell this type of drink to anyone under 18 years old.
-
-#### Desserts
-Some dessert options. Only a pudding and a passion fruit mousse were added, as the AI ​​couldn't make a petit-gateau at all.
-
-**Note:** when clicking on the category in the navigation menu that is fixed on the screen, you will be taken to where that category begins.
+Não tenho ideia do preço dos alimentos, todos os valores foram gerados com preço e quantidade que vieram da minha cabeça, as imagens dos lanches, pratos, bebidas e sobremesas foram geradas com inteligência artificial (IA).
 
 <hr />
 
-### Searching for items
-In the application header, we have a search field where you can search for the name of the items. The filter is **case insensitive**, that is, it does not consider lowercase and uppercase letters, if you search for "salad" or "Salad" or even "SALADA", it will not interfere, the filter will search for all items that have "salad" in its name and will show it on the screen to the user, it is up to them to choose which option they like most.
+### Categorias
+Temos diversas categorias de alimentos, incluindo: "**Entradas**", "**Padrões**", "**Frango**", "**Artesanais**", "**Porções**", "**Bebidas**" e "**Sobremesas**".
+
+#### Entradas
+Pequenas porções, como se fosse mesmo uma entrada de restaurante. Pense neles como uma “opção” para incluir na refeição.
+
+#### Padrões
+Lanche padrão que todo mundo conhece, o famoso X Bacon, X Salada, X Presunto, entre outros...
+
+#### Frango
+Igual ao lanche padrão, porém, em vez de carne bovina é frango, esses lanches se chamam Galis alguma coisa, seja Galis Bacon, Galis Tudo, tanto faz.
+
+#### Artesanais
+Nessas opções são demonstrados os hambúrgueres artesanais (ou gourmet), que consequentemente têm o preço mais elevado devido ao seu método especial de preparo e à alta seleção de seus ingredientes.
+
+#### Porções
+Ao contrário das entradas, esta seção apresenta alguns pratos que podem ser servidos como refeição, já que a maioria costuma ser acompanhada de arroz, feijão e salada, entre outras opções.
+
+#### Bebidas
+Autoexplicativo, aqui mostra as bebidas disponíveis para consumo na hamburgueria. Foi colocado um aviso na seleção de uma bebida alcoólica, alertando o usuário que o estabelecimento não vende esse tipo de bebida para menores de 18 anos.
+
+#### Sobremesas
+Algumas opções de sobremesas. Foram adicionados apenas um pudim e um mousse de maracujá, pois a IA não conseguiu fazer um petit-gateau de jeito nenhum.
+
+**Observação:** ao clicar na categoria do menu de navegação que fica fixo na tela, você será levado para onde aquela categoria começa.
 
 <hr />
 
-### How to place an order
-Placing an order is simple, just click on what you want to order and a modal will appear with some options. Each item has its own individual modal, with options exclusive to that item only. All items allow the user to write a note if they wish, for example: there is no need to fry the onion too much.
-
-Some items have additional values ​​that are deducted from the final value of your order. The values ​​that decrease the final value are in red, those that increase are in green and those that do not change the value are written exactly that in gray. The total order value is updated in real time and this is the value that goes to your cart when you complete it.
-
-Each completed field is stored in local storage, meaning that, even if the user reloads or closes the page, the order he made when clicking "**Add to cart**" (which is only available if the establishment is open) remains. When doing this, the page is reloaded and the "**Cart**" option appears to the user in the bottom right corner of the screen, allowing the user to continue placing more orders or not.
+### Procurando por itens
+No cabeçalho da aplicação, temos um campo de busca onde você pode pesquisar pelo nome dos itens. O filtro é **case insensitive**, ou seja, não considera letras minúsculas e maiúsculas, se você pesquisar por "salada" ou "Salada" ou mesmo "SALADA", não irá interferir, o filtro irá procurar por todos os itens que possuem “salada” no nome e irão mostrar na tela para o usuário, cabe a ele escolher qual opção mais lhe agrada.
 
 <hr />
 
-### Finalizing the order
-In the "**Cart**", you will have two fields: "**Review your order**" and "**Confirm your order**".
+### Como fazer um pedido
+Fazer um pedido é simples, basta clicar no que deseja pedir e aparecerá um modal com algumas opções. Cada item possui seu modal individual, com opções exclusivas apenas para aquele item. Todos os itens permitem que o usuário escreva uma observação se desejar, por exemplo: não há necessidade de fritar muito a cebola.
 
-#### Review your order
-Here all the items you had added will appear, with everything you ordered, their extras, the price of these extras and your comments. The price of extras is in yellow under "**Complements**", it can be a positive, negative value or there may even be no value. The final amount to be paid appears in green, just below the name of the dish. It is in this tab that the user will review their order and remove items from the cart if they wish.
+Alguns itens possuem valores adicionais que são deduzidos do valor final do seu pedido. Os valores que diminuem o valor final estão em vermelho, os que aumentam estão em verde e os que não alteram o valor estão escritos exatamente isso em cinza. O valor total do pedido é atualizado em tempo real e esse é o valor que vai para o seu carrinho ao finalizá-lo.
 
-#### Confirm your order
-In this tab there is a form to fill out with some information, such as: "**Name**", "**Address**", "**ZipCode**", "**Neighborhood**", "**Reference point**", "**Complement**" and "**Payment method** ". Next to the field for filling in the delivery address, there is a checkbox "**I will pick up at the location**", when checking it, all information regarding delivery will be disabled, making the user only fill in the name and the form of payment. The mandatory fields are marked in red and also have a red asterisk, the ZipCode field for example, the user is required to write the ZipCode in the correct format, when this event happens, the field will turn green, this also applies to the other fields in the form. After everything happens, the cart is reset and another order can now be placed again.
-If the user clicks on the "**Confirm order**" button located at the end of the form, before completing the mandatory fields, a message will appear alerting the user that there are still fields to be completed, the user is unable to complete the order. if he does not complete what is mandatory. If he has filled out everything and clicks the button, the button text will change and it will be disabled, a message will appear saying that the order was made successfully.
+Cada campo preenchido fica armazenado no local storage, ou seja, mesmo que o usuário recarregue ou feche a página, o pedido que ele fez ao clicar em “**Adicionar ao carrinho**” (que só está disponível se o estabelecimento estiver aberto) permanece. Ao fazer isso, a página é recarregada e a opção “**Carrinho**” aparece para o usuário no canto inferior direito da tela, permitindo que o usuário continue fazendo mais pedidos ou não.
 
-When the checkbox is selected, only the name, payment method and order are sent to the server. If it is not checked, all form items are sent.
+<hr />
+
+### Finalizando o pedido
+No "**Carrinho**", você terá dois campos: "**Revise seu pedido**" e "**Confirme seu pedido**".
+
+#### Revise seu pedido
+Aqui aparecerão todos os itens que você adicionou, com tudo o que você encomendou, seus opcionais, o preço desses opcionais e seus comentários. O preço dos extras está em amarelo em “**Complementos**”, pode ser um valor positivo, negativo ou até mesmo não haver valor. O valor final a ser pago aparece em verde, logo abaixo do nome do pedido. É nesta aba que o usuário irá revisar seu pedido e retirar itens do carrinho se desejar.
+
+#### Confirme seu pedido
+Nesta aba existe um formulário para preencher com algumas informações, como: "**Nome**", "**Endereço**", "**CEP**", "**Bairro**", " **Ponto de referência**", "**Complemento**" e "**Forma de pagamento**". Ao lado do campo para preenchimento do endereço de entrega, há uma checkbox “**Vou retirar no local**”, ao marcá-la, todas as informações referentes à entrega serão desativadas, fazendo com que o usuário preencha apenas o nome e a forma de pagamento. Os campos obrigatórios estão marcados em vermelho e também possuem um asterisco vermelho, o campo CEP por exemplo, o usuário é obrigado a escrever o CEP no formato correto, quando esse evento acontecer o campo ficará verde, isso vale também para os demais campos do formulário. Depois que tudo acontecer, o carrinho é zerado e outro pedido pode ser feito novamente.
+Caso o usuário clique no botão “**Confirmar pedido**” localizado no final do formulário, antes de preencher os campos obrigatórios, aparecerá uma mensagem alertando o usuário que ainda existem campos a serem preenchidos, o usuário não poderá completar o pedido. se ele não completar o que é obrigatório. Se ele tiver preenchido tudo e clicar no botão, o texto do botão mudará e ele será desativado, aparecerá uma mensagem informando que o pedido foi realizado com sucesso.
+
+Quando a checkbox é marcada, apenas o nome, forma de pagamento e pedido são enviados ao servidor. Se não estiver marcada, todos os itens do formulário serão enviados.
