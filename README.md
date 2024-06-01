@@ -1,4 +1,4 @@
-# MP Burguer 🍔
+# MP Burger 🍔
 
 ### Link do projeto rodando na Vercel: https://mp-burguer-place.vercel.app/
 
