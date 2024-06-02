@@ -12,6 +12,12 @@
 
 - Não tenho ideia do preço dos alimentos, todos os valores foram gerados com preço e quantidade que vieram da minha cabeça, as imagens dos lanches, pratos, bebidas e sobremesas foram geradas com inteligência artificial (IA).
 
+<div align="center">
+
+![MPBurger](./documentation/documentationPhoto1.png)
+
+</div>
+
 ---
 
 ### Categorias
@@ -53,6 +59,11 @@ Temos diversas categorias de alimentos, incluindo:
 ### Procurando por itens
 - No cabeçalho da aplicação, temos um campo de busca onde você pode pesquisar pelo nome dos itens. O filtro é **case insensitive**, ou seja, não considera letras minúsculas e maiúsculas, se você pesquisar por "salada" ou "Salada" ou mesmo "SALADA", não irá interferir, o filtro irá procurar por todos os itens que possuem “salada” no nome e irão mostrar na tela para o usuário, cabe a ele escolher qual opção mais lhe agrada.
 
+<div align="center">
+
+![Como pesquisar um item](./documentation/documentationPhoto2.png)
+
+</div>
 ---
 
 ### Como fazer um pedido
@@ -62,20 +73,111 @@ Temos diversas categorias de alimentos, incluindo:
 
 - Cada campo preenchido fica armazenado no local storage, ou seja, mesmo que o usuário recarregue ou feche a página, o pedido que ele fez ao clicar em “**Adicionar ao carrinho**” (que só está disponível se o estabelecimento estiver aberto) permanece. Ao fazer isso, a página é recarregada e a opção “**Carrinho**” aparece para o usuário no canto inferior direito da tela, permitindo que o usuário continue fazendo mais pedidos ou não.
 
+<div align="center">
+
+![Como fazer um pedido](./documentation/documentationPhoto3.png)
+
+![Localização do carrinho](./documentation/documentationPhoto6.png)
+
+</div>
+
 ---
 
 ### Finalizando o pedido
-No "**Carrinho**", você terá dois campos: "**Revise seu pedido**" e "**Confirme seu pedido**".
+No "**Carrinho**", você terá dois campos: "**Revise seu pedido**" e "**Complete seu pedido**".
+
+<div align="center">
+
+![Carrinho](./documentation/documentationPhoto4.png)
+
+</div>
 
 #### Revise seu pedido
 - Aqui aparecerão todos os itens que você adicionou, com tudo o que você encomendou, seus opcionais, o preço desses opcionais e seus comentários. O preço dos extras está em amarelo em “**Complementos**”, pode ser um valor positivo, negativo ou até mesmo não haver valor. O valor final a ser pago aparece em verde, logo abaixo do nome do pedido. É nesta aba que o usuário irá revisar seu pedido e retirar itens do carrinho se desejar.
 
-#### Confirme seu pedido
+<div align="center">
+
+![Revise seu pedido](./documentation/documentationPhoto5.png)
+
+</div>
+
+#### Complete seu pedido
+
+<div align="center">
+
+![Complete seu pedido](./documentation/documentationPhoto7.png)
+
+</div>
+
 - Nesta aba existe um formulário para preencher com algumas informações, como: "**Nome**", "**Endereço**", "**CEP**", "**Bairro**", " **Ponto de referência**", "**Complemento**" e "**Forma de pagamento**". Ao lado do campo para preenchimento do endereço de entrega, há uma checkbox “**Vou retirar no local**”, ao marcá-la, todas as informações referentes à entrega serão desativadas, fazendo com que o usuário preencha apenas o nome e a forma de pagamento. Os campos obrigatórios estão marcados em vermelho e também possuem um asterisco vermelho, o campo CEP por exemplo, o usuário é obrigado a escrever o CEP no formato correto, quando esse evento acontecer o campo ficará verde, isso vale também para os demais campos do formulário. Depois que tudo acontecer, o carrinho é zerado e outro pedido pode ser feito novamente.
+
+<div align="center">
+
+<small>
+Sem a checbox marcada
+</small>
+
+![Sem a checkbox marcada](./documentation/documentationPhoto8.png)
+
+<small>
+Com a checbox marcada
+</small>
+
+![Com a checkbox marcada](./documentation/documentationPhoto9.png)
+
+</div>
 
 - Caso o usuário clique no botão “**Confirmar pedido**” localizado no final do formulário, antes de preencher os campos obrigatórios, aparecerá uma mensagem alertando o usuário que ainda existem campos a serem preenchidos, o usuário não poderá completar o pedido. se ele não completar o que é obrigatório. Se ele tiver preenchido tudo e clicar no botão, o texto do botão mudará e ele será desativado, aparecerá uma mensagem informando que o pedido foi realizado com sucesso.
 
+<div align="center">
+
+<small>
+Mensagem de que está faltando algo
+</small>
+
+![Mensagem de erro](./documentation/documentationPhoto10.png)
+
+<small>
+Mensagem de sucesso
+</small>
+
+![Mensagem de sucesso](./documentation/documentationPhoto11.png)
+
+
+</div>
+
 - Quando a checkbox é marcada, apenas o nome, forma de pagamento e pedido são enviados ao servidor. Se não estiver marcada, todos os itens do formulário serão enviados.
+
+- Aqui está um exemplo de como os dados chegam no servidor quando a checbox está desmarcada de acordo com o exemplo:
+```JSON
+{
+  "orders": [
+    {
+      "id": "90a3",
+      "name": "Fulano",
+      "address": "Rua ABC",
+      "zipCode": "28922-529",
+      "neighborhood": "Alegre",
+      "number": "7.880",
+      "referencePoint": "Próximo a uma farmácia de esquina",
+      "complement": "house",
+      "formOfPayment": "money",
+      "order": [
+        {
+          "description": "X Tudo",
+          "price": 35,
+          "extras": [
+            "Peito de peru",
+            "Ovo",
+            "Sem gergelim"
+          ]
+        }
+      ],
+      "submittedAt": "02/06/2024, 12:30:17"
+    }
+  ]
+}
+```
 
 ## ⛏️ Ferramentas utilizadas
 
@@ -107,6 +209,7 @@ PS C:\burger echo. > orders.json
 ```Shell
 PS C:\burger json-server --watch orders.json --port 3001
 ```
+> **Observações:** caso o arquivo json não seja criado ou o servidor não seja inicializado, um erro irá aparecer na hora de confirmar o pedido.
 
 - Inicie o projeto com:
 ```Shell
