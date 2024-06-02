@@ -64,6 +64,7 @@ Temos diversas categorias de alimentos, incluindo:
 ![Como pesquisar um item](./documentation/documentationPhoto2.png)
 
 </div>
+
 ---
 
 ### Como fazer um pedido
