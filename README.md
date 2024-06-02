@@ -127,7 +127,7 @@ Com a checbox marcada
 
 </div>
 
-- Caso o usuário clique no botão “**Confirmar pedido**” localizado no final do formulário, antes de preencher os campos obrigatórios, aparecerá uma mensagem alertando o usuário que ainda existem campos a serem preenchidos, o usuário não poderá completar o pedido. se ele não completar o que é obrigatório. Se ele tiver preenchido tudo e clicar no botão, o texto do botão mudará e ele será desativado, aparecerá uma mensagem informando que o pedido foi realizado com sucesso.
+- Caso o usuário clique no botão “**Confirmar pedido**” localizado no final do formulário, antes de preencher os campos obrigatórios, aparecerá uma mensagem alertando o usuário que ainda existem campos a serem preenchidos, o usuário não poderá completar o pedido se ele não completar o que é obrigatório. Se ele tiver preenchido tudo e clicar no botão, o texto do botão mudará e ele será desativado, aparecerá uma mensagem informando que o pedido foi realizado com sucesso.
 
 <div align="center">
 
