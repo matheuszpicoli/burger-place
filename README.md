@@ -97,7 +97,7 @@ PS C:\burger echo. > orders.json
 
 - Dentro desse arquivo, escreva:
 
-```JSON
+```JSON with comments
 // Esse será o arquivo responsável por salvar os seus pedidos.
 
 {
