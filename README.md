@@ -110,7 +110,7 @@ No "**Carrinho**", você terá dois campos: "**Revise seu pedido**" e "**Complet
 
 </div>
 
-- Nesta aba existe um formulário para preencher com algumas informações, como: "**Nome**", "**Endereço**", "**CEP**", "**Bairro**", " **Ponto de referência**", "**Complemento**" e "**Forma de pagamento**". Ao lado do campo para preenchimento do endereço de entrega, há uma checkbox “**Vou retirar no local**”, ao marcá-la, todas as informações referentes à entrega serão desativadas, fazendo com que o usuário preencha apenas o nome e a forma de pagamento. Os campos obrigatórios estão marcados em vermelho e também possuem um asterisco vermelho, o campo CEP por exemplo, o usuário é obrigado a escrever o CEP no formato correto, quando esse evento acontecer o campo ficará verde, isso vale também para os demais campos do formulário. Depois que tudo acontecer, o carrinho é zerado e outro pedido pode ser feito novamente.
+- Nesta aba existe um formulário para preencher com algumas informações, como: "**Nome**", "**Endereço**", "**CEP**", "**Bairro**", "**Número**", "**Ponto de referência**", "**Complemento**" e "**Forma de pagamento**". Ao lado do campo para preenchimento do endereço de entrega, há uma checkbox “**Vou buscar no local**”, ao marcá-la, todas as informações referentes à entrega serão desativadas, fazendo com que o usuário preencha apenas o nome e a forma de pagamento. Os campos obrigatórios estão marcados em vermelho e também possuem um asterisco vermelho, o campo CEP por exemplo, o usuário é obrigado a escrever o CEP no formato correto, quando esse evento acontecer o campo ficará verde, isso vale também para os demais campos do formulário. Depois que tudo acontecer, o carrinho é zerado e outro pedido pode ser feito novamente.
 
 <div align="center">
 
