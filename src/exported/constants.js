@@ -7,6 +7,9 @@ export const closingTime = 23
 
 export const isOpen = hours >= openingTime && hours < closingTime
 
+//# Prices
+export const minimumPrice = 20
+
 //# Masks
 export const maskForPrice = (price = 0) => {
 	const mask = parseFloat(price).toLocaleString("pt-BR", {

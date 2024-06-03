@@ -1,4 +1,4 @@
-//- Imagens
+//- Images
 import * as Image from "../images/Images"
 
 const Orders = {

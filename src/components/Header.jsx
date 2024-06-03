@@ -75,7 +75,7 @@ export function Operation() {
 
 			{constant.isOpen && (
 				<div className="cursor-default">
-					<Icon.Clock className="inline m-2" /> <b>60-100min</b> • Mínimo <span className="text-green-400">R$20,00</span>.
+					<Icon.Clock className="inline m-2" /> <b>60-100min</b> • Mínimo <span className="text-green-400">{constant.maskForPrice(constant.minimumPrice)}</span>.
 				</div>
 			)}
 			{!constant.isOpen && (

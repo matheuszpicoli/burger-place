@@ -4,6 +4,9 @@ import React, { useState, useLayoutEffect } from "react"
 //- React Icons
 import * as Icon from "../exported/reactIcons"
 
+//- Constants
+import * as constant from "../exported/constants"
+
 export default function Form({
 	cart,
 	setCart
@@ -22,21 +25,59 @@ export default function Form({
 	})
 
 	const [success, setSuccess] = useState(false)
-	const [error, setError] = useState(false)
+	const [error, setError] = useState("")
+	const [orderLowerThanMinimumPrice, setOrderLowerThanMinimumPrice] = useState(false)
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(false)
 	const [buttonText, setButtonText] = useState("Confirmar pedido")
 
-	const requiredFieldsNotFfilledIin = (
-		!dataForm.name ||
-		!dataForm.formOfPayment ||
-		!dataForm.local && (
-			!dataForm.address ||
-			!dataForm.zipCode || dataForm.zipCode.length < 9 ||
-			!dataForm.neighborhood ||
-			!dataForm.number ||
-			!dataForm.complement
-		)
-	)
+	const validateForm = () => {
+		let errors = []
+
+		const orderPrice = cart.reduce((acc, item) => acc + item.price, 0)
+
+		if (orderPrice < constant.minimumPrice) setOrderLowerThanMinimumPrice(true)
+
+		const validations = [
+			{
+				condition: orderPrice < 20,
+				message: ""
+			},
+			{
+				condition: !dataForm.name,
+				message: "Nome"
+			},
+			{
+				condition: !dataForm.formOfPayment,
+				message: "Forma de pagamento"
+			},
+			{
+				condition: !dataForm.local && !dataForm.address,
+				message: "Endereço"
+			},
+			{
+				condition: !dataForm.local && (!dataForm.zipCode || dataForm.zipCode.length < 9),
+				message: "CEP (precisa ter 8 caracteres)"
+			},
+			{
+				condition: !dataForm.local && !dataForm.neighborhood,
+				message: "Bairro"
+			},
+			{
+				condition: !dataForm.local && !dataForm.number,
+				message: "Número"
+			},
+			{
+				condition: !dataForm.local && !dataForm.complement,
+				message: "Complemento"
+			},
+		]
+
+		validations.forEach(validation => {
+			if (validation.condition) errors.push(validation.message)
+		})
+
+		return errors
+	}
 
 	const clearCart = () => setCart([])
 
@@ -115,10 +156,11 @@ export default function Form({
 			}
 		}
 
-		if (requiredFieldsNotFfilledIin) {
-			setError(true)
+		let errors = validateForm()
 
-			setTimeout(() => setError(false), 7000)
+		if (errors.length > 0) {
+			setError(errors.join(", ").concat("."))
+			setTimeout(() => setError(""), 7000)
 		}
 		else {
 			const serverUrl = "http://localhost:3001"
@@ -144,11 +186,21 @@ export default function Form({
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{error && (
+			{error.length > 0 && (
 				<div className="fixed top-16 right-6 bg-red-500 text-white font-bold p-3 rounded-l rounded-r cursor-default animate-fade-in sm:right-0 md:right-0">
 					<Icon.Alert className="inline w-5 h-5 mr-1" />
 					<span className="align-middle">
-						Há campos obrigatórios que não foram preenchidos.
+						{orderLowerThanMinimumPrice ? (
+							`O valor mínimo do pedido é de ${constant.maskForPrice(constant.minimumPrice)}`
+						) : (
+							<React.Fragment>
+								Há campos obrigatórios que não foram preenchidos:
+								<br />
+								<small>
+									{error}
+								</small>
+							</React.Fragment>
+						)}
 					</span>
 				</div>
 			)}
